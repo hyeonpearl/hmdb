@@ -1,8 +1,11 @@
-import styled from '@emotion/styled';
-import { AppBar, Container, Grid, Toolbar } from '@mui/material';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+
+import styled from '@emotion/styled';
+import { AppBar, Container, Grid, Toolbar } from '@mui/material';
+
+import { common } from '@/styles/common';
 
 export default function Header() {
   return (
@@ -12,24 +15,15 @@ export default function Header() {
           <Link href={'/'} className='logo'>
             <Image
               src={'/logo_blank.svg'}
-              width={140}
+              width={160}
               height={62.5}
               alt='logo'
             />
           </Link>
 
           <nav>
-            <Grid container alignItems={'center'} spacing={8}>
-              <Grid item xs={4}>
-                <Item href={'/test'}>Trending</Item>
-              </Grid>
-              <Grid item xs={4}>
-                <Item href={'/test'}>Popular</Item>
-              </Grid>
-              <Grid item xs={4}>
-                <Item href={'/test'}>Top&nbsp;Rate</Item>
-              </Grid>
-            </Grid>
+            <Item href={'/test'}>영화</Item>
+            <Item href={'/test'}>TV&nbsp;프로그램</Item>
           </nav>
         </StyledToolbar>
       </Container>
@@ -38,20 +32,30 @@ export default function Header() {
 }
 
 const StyledAppBar = styled(AppBar)`
-  background: #323232;
+  background: ${common.color.gray01};
   position: relative;
 `;
 
 const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
+
+  @media screen and (max-width: 390px) {
+    a img {
+      width: 100px;
+    }
+  }
 `;
 
 const Item = styled(Link)`
   text-decoration: none;
-  color: #fff;
-  width: 6rem;
+  padding: 1rem;
+  color: ${common.color.white};
 
   :hover {
-    color: #ccc;
+    color: ${common.color.gray_hover};
+  }
+
+  :last-child {
+    margin-left: 1rem;
   }
 `;
