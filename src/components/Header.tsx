@@ -22,14 +22,8 @@ export default function Header() {
           </Link>
 
           <nav>
-            <Grid container alignItems={'center'} spacing={8}>
-              <Grid item xs={4}>
-                <Item href={'/test'}>영화</Item>
-              </Grid>
-              <Grid item xs={4}>
-                <Item href={'/test'}>TV&nbsp;프로그램</Item>
-              </Grid>
-            </Grid>
+            <Item href={'/test'}>영화</Item>
+            <Item href={'/test'}>TV&nbsp;프로그램</Item>
           </nav>
         </StyledToolbar>
       </Container>
@@ -54,9 +48,14 @@ const StyledToolbar = styled(Toolbar)`
 
 const Item = styled(Link)`
   text-decoration: none;
+  padding: 1rem;
   color: ${common.color.white};
 
   :hover {
     color: ${common.color.gray_hover};
+  }
+
+  :last-child {
+    margin-left: 1rem;
   }
 `;
