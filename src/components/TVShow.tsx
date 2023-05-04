@@ -5,8 +5,10 @@ import { common } from '@/styles/common';
 
 export default function TVShow() {
   return (
-    <StyledSection>
-      <h3>TV Show</h3>
+    <StyledArticle>
+      <h3>
+        <span>TV Show</span>
+      </h3>
       <ul>
         {array.map((_, index) => (
           <li key={index}>
@@ -21,15 +23,33 @@ export default function TVShow() {
           </li>
         ))}
       </ul>
-    </StyledSection>
+    </StyledArticle>
   );
 }
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const StyledSection = styled.section`
+const StyledArticle = styled.article`
   h3 {
     font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      cursor: pointer;
+
+      :hover {
+        background: linear-gradient(
+          to right,
+          ${common.color.green},
+          ${common.color.yellow}
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
   }
 
   ul {

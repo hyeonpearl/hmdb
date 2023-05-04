@@ -14,36 +14,37 @@ export default function Home() {
     <main>
       <SEO title='Home' />
 
-      <IntroContainer fixed>
-        <StyledIntroduce>
-          <strong>Welcome</strong>
-          This is movie database
-          <strong>for you.</strong>
-        </StyledIntroduce>
-        <Search />
-        <ExpandMoreRoundedIcon />
-      </IntroContainer>
+      <section>
+        <IntroContainer fixed>
+          <StyledIntroduce>
+            <strong>Welcome</strong>
+            This is movie database
+            <strong>for you.</strong>
+          </StyledIntroduce>
+          <Search />
+          <ExpandMoreRoundedIcon />
+        </IntroContainer>
+      </section>
 
-      <Container fixed>
-        <Movie title='Trend Movies' />
-        <Movie title='Popular Movies' />
-        <TVShow />
-      </Container>
+      <section>
+        <Container fixed>
+          <Movie title='Trend Movies' />
+          <Movie title='Popular Movies' />
+          <TVShow />
+        </Container>
+      </section>
     </main>
   );
 }
 
 const floating = keyframes`
   0% {
-    
     transform: translateY(0);    
   }
   50% {
-    
     transform: translateY(-15px);
   }
   100% {
-    
     transform: translateY(0);
   }
 `;
