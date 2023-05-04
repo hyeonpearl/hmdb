@@ -6,44 +6,42 @@ import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import { common } from '@/styles/common';
 import SEO from '@/components/SEO';
 import Search from '@/components/Search';
-import Movie from '@/components/Movie';
-import TVShow from '@/components/TVShow';
+import MovieContainer from '@/containers/MovieContainer';
 
 export default function Home() {
   return (
     <main>
       <SEO title='Home' />
 
-      <IntroContainer fixed>
-        <StyledIntroduce>
-          <strong>Welcome</strong>
-          This is movie database
-          <strong>for you.</strong>
-        </StyledIntroduce>
-        <Search />
-        <ExpandMoreRoundedIcon />
-      </IntroContainer>
+      <section>
+        <IntroContainer fixed>
+          <StyledIntroduce>
+            <strong>Welcome</strong>
+            This is movie database
+            <strong>for you.</strong>
+          </StyledIntroduce>
+          <Search />
+          <ExpandMoreRoundedIcon />
+        </IntroContainer>
+      </section>
 
-      <Container fixed>
-        <Movie title='Trend Movies' />
-        <Movie title='Popular Movies' />
-        <TVShow />
-      </Container>
+      <section>
+        <Container fixed>
+          <MovieContainer title='Now Playing' request={'now_playing'} />
+        </Container>
+      </section>
     </main>
   );
 }
 
 const floating = keyframes`
   0% {
-    
     transform: translateY(0);    
   }
   50% {
-    
     transform: translateY(-15px);
   }
   100% {
-    
     transform: translateY(0);
   }
 `;

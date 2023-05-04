@@ -8,7 +8,7 @@ export default function Search() {
     <SearchContainer>
       <TextField
         fullWidth
-        placeholder='영화, 드라마 등등...'
+        placeholder='Movie, Drama, TV Show, etc...'
         sx={{
           '& .Mui-focused': {
             color: common.color.white,
@@ -36,8 +36,9 @@ const SearchContainer = styled(Paper)`
     color: ${common.color.gray06};
     border-radius: 15px;
     text-indent: 20px;
-  }
-  input::placeholder {
-    color: ${common.color.gray06};
+
+    ::placeholder {
+      color: ${common.color.gray06};
+    }
   }
 `;
