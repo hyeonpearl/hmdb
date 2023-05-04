@@ -22,8 +22,8 @@ export default function Header() {
           </Link>
 
           <nav>
-            <Item href={'/test'}>영화</Item>
-            <Item href={'/test'}>TV&nbsp;프로그램</Item>
+            <Item href={'/test'}>Movies</Item>
+            <Item href={'/test'}>TV&nbsp;Show</Item>
           </nav>
         </StyledToolbar>
       </Container>

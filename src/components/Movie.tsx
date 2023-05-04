@@ -1,27 +1,57 @@
+import Link from 'next/link';
+
 import styled from '@emotion/styled';
 import { Skeleton } from '@mui/material';
 
 import { common } from '@/styles/common';
 
-export default function Movie({ title }: { title: string }) {
+interface Movie {
+  poster_path: string | null;
+  id: number;
+  title: string;
+}
+
+export default function Movie({
+  title,
+  movies,
+  isLoading,
+}: {
+  title: string;
+  movies: {
+    movie: Movie[];
+  };
+  isLoading: boolean;
+}) {
   return (
     <StyledArticle>
       <h3>
         <span>{title}</span>
       </h3>
       <ul>
-        {array.map((_, index) => (
-          <li key={index}>
-            <StyledSkeleton
-              variant='rounded'
-              width={210}
-              height={300}
-              key={index}
-            />
-            <StyledSkeleton variant='rounded' width={210} height={20} />
-            <StyledSkeleton variant='rounded' width={100} height={20} />
-          </li>
-        ))}
+        {isLoading
+          ? array.map((_, index) => (
+              <li key={index}>
+                <StyledSkeleton
+                  variant='rounded'
+                  width={210}
+                  height={300}
+                  key={index}
+                />
+                <StyledSkeleton variant='rounded' width={210} height={20} />
+                <StyledSkeleton variant='rounded' width={100} height={20} />
+              </li>
+            ))
+          : movies.map((movie: Movie) => (
+              <li key={movie.id}>
+                <Link href={'/test'}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                    alt='poster'
+                  />
+                  <div>{movie.title}</div>
+                </Link>
+              </li>
+            ))}
       </ul>
     </StyledArticle>
   );
@@ -59,9 +89,23 @@ const StyledArticle = styled.article`
 
     li {
       list-style: none;
-    }
-    li:not(:first-child) {
-      margin-left: 1rem;
+
+      a {
+        text-decoration: none;
+
+        img {
+          width: 210px;
+          height: 330px;
+        }
+
+        div {
+          color: ${common.color.white};
+        }
+      }
+
+      :not(:first-child) {
+        margin-left: 1rem;
+      }
     }
   }
 `;

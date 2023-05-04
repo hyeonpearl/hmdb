@@ -59,9 +59,10 @@ const StyledArticle = styled.article`
 
     li {
       list-style: none;
-    }
-    li:not(:first-child) {
-      margin-left: 1rem;
+
+      :not(:first-child) {
+        margin-left: 1rem;
+      }
     }
   }
 `;
