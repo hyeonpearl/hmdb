@@ -28,6 +28,8 @@ export default function Home() {
       <section>
         <Container fixed>
           <MovieContainer title='Now Playing' request={'now_playing'} />
+          <MovieContainer title='Popular' request={'popular'} />
+          <MovieContainer title='Top Rated' request={'top_rated'} />
         </Container>
       </section>
     </main>
