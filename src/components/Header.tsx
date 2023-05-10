@@ -3,7 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styled from '@emotion/styled';
-import { AppBar, Container, Grid, Toolbar } from '@mui/material';
+import { AppBar, Container, Toolbar } from '@mui/material';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 
 import { common } from '@/styles/common';
 
@@ -22,8 +23,9 @@ export default function Header() {
           </Link>
 
           <nav>
-            <Item href={'/test'}>Movies</Item>
-            <Item href={'/test'}>TV&nbsp;Show</Item>
+            <span>Movies</span>
+            <span>TV&nbsp;Show</span>
+            <SearchRoundedIcon />
           </nav>
         </StyledToolbar>
       </Container>
@@ -33,29 +35,33 @@ export default function Header() {
 
 const StyledAppBar = styled(AppBar)`
   background: ${common.color.gray01};
-  position: relative;
+  position: fixed;
+  opacity: 0.8;
 `;
 
 const StyledToolbar = styled(Toolbar)`
   justify-content: space-between;
+  align-items: center;
 
   @media screen and (max-width: 390px) {
     a img {
       width: 100px;
     }
   }
-`;
 
-const Item = styled(Link)`
-  text-decoration: none;
-  padding: 1rem;
-  color: ${common.color.white};
+  nav {
+    display: flex;
+    align-items: center;
 
-  :hover {
-    color: ${common.color.gray_hover};
-  }
+    span,
+    svg {
+      padding: 1rem;
+      color: ${common.color.white};
+      cursor: pointer;
 
-  :last-child {
-    margin-left: 1rem;
+      :hover {
+        color: ${common.color.gray_hover};
+      }
+    }
   }
 `;

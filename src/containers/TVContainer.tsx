@@ -1,14 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import Movie from '@/components/Movie';
+import TVShow from '@/components/TVShow';
 
-interface Movie {
-  poster_path: string | null;
-  id: number;
-  title: string;
-}
-
-export default function MovieContainer({
+export default function TVContainer({
   title,
   request,
 }: {
@@ -16,13 +10,13 @@ export default function MovieContainer({
   request: string;
 }) {
   const [isLoading, setIsLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
+  const [tvShows, setTVShows] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/movie/${request}`)
+    fetch(`/api/tv/${request}`)
       .then(res => res.json())
       .then(data => {
-        setMovies(data.results);
+        setTVShows(data.results);
         setIsLoading(false);
       })
       .catch(error => {
@@ -31,5 +25,5 @@ export default function MovieContainer({
       });
   }, [request]);
 
-  return <Movie title={title} movies={movies} isLoading={isLoading} />;
+  return <TVShow title={title} tvShows={tvShows} isLoading={isLoading} />;
 }

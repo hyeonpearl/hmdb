@@ -1,28 +1,28 @@
+import Head from 'next/head';
+
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import { Container } from '@mui/material';
-import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 
 import { common } from '@/styles/common';
-import SEO from '@/components/SEO';
-import Search from '@/components/Search';
 import MovieContainer from '@/containers/MovieContainer';
+import TVContainer from '@/containers/TVContainer';
 
 export default function Home() {
   return (
-    <main>
-      <SEO title='Home' />
+    <HomeContainer>
+      <Head>
+        <title>HMDb : Find a Best Movie & Drama</title>
+      </Head>
 
       <section>
-        <IntroContainer fixed>
+        <Container fixed>
           <StyledIntroduce>
-            <strong>Welcome</strong>
-            This is movie database
-            <strong>for you.</strong>
+            <strong>어서오세요</strong>
+            영화 정보 사이트
+            <strong>HMDb입니다.</strong>
           </StyledIntroduce>
-          <Search />
-          <ExpandMoreRoundedIcon />
-        </IntroContainer>
+        </Container>
       </section>
 
       <section>
@@ -32,34 +32,32 @@ export default function Home() {
           <MovieContainer title='Top Rated' request={'top_rated'} />
         </Container>
       </section>
-    </main>
+
+      <section>
+        <Container fixed>
+          <TVContainer title='Trending' request='trending' />
+          <TVContainer title='Top Rated' request='top_rated' />
+        </Container>
+      </section>
+    </HomeContainer>
   );
 }
 
-const floating = keyframes`
-  0% {
-    transform: translateY(0);    
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-`;
+const HomeContainer = styled.main`
+  section {
+    padding: 1rem;
 
-const IntroContainer = styled(Container)`
-  height: 100vh;
-  text-align: center;
+    :first-of-type {
+      margin-top: 66px;
+      text-align: center;
+    }
 
-  svg {
-    margin-top: 5rem;
-    font-size: 5rem;
-    color: ${common.color.gray06};
-    animation: ${floating} 2s ease infinite;
+    :nth-of-type(odd) {
+      background: ${common.color.black};
+    }
 
-    @media screen and (max-width: 600px) {
-      font-size: 3rem;
+    :nth-of-type(even) {
+      background: ${common.color.white};
     }
   }
 `;
@@ -83,11 +81,7 @@ const StyledIntroduce = styled.h1`
   }
 
   @media screen and (max-width: 600px) {
-    font-size: 1.75rem;
-  }
-
-  @media screen and (max-width: 360px) {
-    font-size: 1.5rem;
+    font-size: 2.25rem;
   }
 
   strong {
