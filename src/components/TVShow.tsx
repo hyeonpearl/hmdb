@@ -43,7 +43,7 @@ export default function TVShow({
             ))
           : tvShows.map((tvShow: TVSHow) => (
               <li key={tvShow.id}>
-                <Link href={'/test'}>
+                <Link href={{ pathname: `/tvShow/${tvShow.id}` }}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`}
                     alt='poster'

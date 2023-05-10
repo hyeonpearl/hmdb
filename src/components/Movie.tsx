@@ -43,7 +43,11 @@ export default function Movie({
             ))
           : movies.map((movie: Movie) => (
               <li key={movie.id}>
-                <Link href={'/test'}>
+                <Link
+                  href={{
+                    pathname: `/movie/${movie.id}`,
+                  }}
+                >
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt='poster'

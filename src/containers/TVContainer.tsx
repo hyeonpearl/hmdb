@@ -1,5 +1,6 @@
-import TVShow from '@/components/TVShow';
 import { useEffect, useState } from 'react';
+
+import TVShow from '@/components/TVShow';
 
 export default function TVContainer({
   title,

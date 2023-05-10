@@ -1,5 +1,6 @@
-import Movie from '@/components/Movie';
 import { useEffect, useState } from 'react';
+
+import Movie from '@/components/Movie';
 
 interface Movie {
   poster_path: string | null;
@@ -18,7 +19,7 @@ export default function MovieContainer({
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/movies/${request}`)
+    fetch(`/api/movie/${request}`)
       .then(res => res.json())
       .then(data => {
         setMovies(data.results);
