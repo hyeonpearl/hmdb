@@ -1,27 +1,57 @@
+import Link from 'next/link';
+
 import styled from '@emotion/styled';
 import { Skeleton } from '@mui/material';
 
 import { common } from '@/styles/common';
 
-export default function TVShow() {
+interface TVSHow {
+  poster_path: string | null;
+  id: number;
+  name: string;
+}
+
+export default function TVShow({
+  title,
+  tvShows,
+  isLoading,
+}: {
+  title: string;
+  tvShows: {
+    tvShow: TVSHow[];
+  };
+  isLoading: boolean;
+}) {
   return (
     <StyledArticle>
       <h3>
-        <span>TV Show</span>
+        <span>{title}</span>
       </h3>
       <ul>
-        {array.map((_, index) => (
-          <li key={index}>
-            <StyledSkeleton
-              variant='rounded'
-              width={210}
-              height={300}
-              key={index}
-            />
-            <StyledSkeleton variant='rounded' width={210} height={20} />
-            <StyledSkeleton variant='rounded' width={100} height={20} />
-          </li>
-        ))}
+        {isLoading
+          ? array.map((_, index) => (
+              <li key={index}>
+                <StyledSkeleton
+                  variant='rounded'
+                  width={210}
+                  height={300}
+                  key={index}
+                />
+                <StyledSkeleton variant='rounded' width={210} height={20} />
+                <StyledSkeleton variant='rounded' width={100} height={20} />
+              </li>
+            ))
+          : tvShows.map((tvShow: TVSHow) => (
+              <li key={tvShow.id}>
+                <Link href={'/test'}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`}
+                    alt='poster'
+                  />
+                  <div>{tvShow.name}</div>
+                </Link>
+              </li>
+            ))}
       </ul>
     </StyledArticle>
   );
@@ -32,9 +62,10 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const StyledArticle = styled.article`
   h3 {
     font-size: 2rem;
+    margin: 1rem 0;
     display: flex;
-    justify-content: center;
     align-items: center;
+    color: ${common.color.white};
 
     span {
       cursor: pointer;
@@ -52,13 +83,44 @@ const StyledArticle = styled.article`
     }
   }
 
+  @media screen and (max-width: 600px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
   ul {
-    padding: 0;
+    padding: 1rem 0;
     display: flex;
     overflow-x: scroll;
 
     li {
       list-style: none;
+
+      a {
+        text-decoration: none;
+
+        img {
+          width: 210px;
+          height: 330px;
+          transition: all 0.3s ease-out;
+
+          :hover {
+            transform: translate(0, -10px);
+          }
+        }
+
+        @media screen and (max-width: 600px) {
+          img {
+            width: 150px;
+            height: 220px;
+          }
+        }
+
+        div {
+          color: ${common.color.white};
+        }
+      }
 
       :not(:first-child) {
         margin-left: 1rem;
