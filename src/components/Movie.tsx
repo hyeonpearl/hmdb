@@ -62,9 +62,10 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const StyledArticle = styled.article`
   h3 {
     font-size: 2rem;
+    margin: 1rem 0;
     display: flex;
-    justify-content: center;
     align-items: center;
+    color: ${common.color.gray01};
 
     span {
       cursor: pointer;
@@ -82,8 +83,14 @@ const StyledArticle = styled.article`
     }
   }
 
+  @media screen and (max-width: 600px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
   ul {
-    padding: 0;
+    padding: 1rem 0;
     display: flex;
     overflow-x: scroll;
 
@@ -96,10 +103,22 @@ const StyledArticle = styled.article`
         img {
           width: 210px;
           height: 330px;
+          transition: all 0.3s ease-out;
+
+          :hover {
+            transform: translate(0, -10px);
+          }
+        }
+
+        @media screen and (max-width: 600px) {
+          img {
+            width: 150px;
+            height: 220px;
+          }
         }
 
         div {
-          color: ${common.color.white};
+          color: ${common.color.gray01};
         }
       }
 

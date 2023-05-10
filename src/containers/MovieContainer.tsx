@@ -30,7 +30,5 @@ export default function MovieContainer({
       });
   }, [request]);
 
-  console.log(movies);
-
   return <Movie title={title} movies={movies} isLoading={isLoading} />;
 }
