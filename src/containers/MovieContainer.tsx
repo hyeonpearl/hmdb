@@ -2,19 +2,12 @@ import { useEffect, useState } from 'react';
 
 import Movie from '@/components/Movie';
 
-interface Movie {
-  poster_path: string | null;
-  id: number;
-  title: string;
-}
-
-export default function MovieContainer({
-  title,
-  request,
-}: {
+interface ContainerProps {
   title: string;
   request: string;
-}) {
+}
+
+export default function MovieContainer({ title, request }: ContainerProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
 

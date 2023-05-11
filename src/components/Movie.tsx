@@ -11,17 +11,13 @@ interface Movie {
   title: string;
 }
 
-export default function Movie({
-  title,
-  movies,
-  isLoading,
-}: {
+interface ComponentProps {
   title: string;
-  movies: {
-    movie: Movie[];
-  };
+  movies: Movie[];
   isLoading: boolean;
-}) {
+}
+
+export default function Movie({ title, movies, isLoading }: ComponentProps) {
   return (
     <StyledArticle>
       <h3>
@@ -126,7 +122,7 @@ const StyledArticle = styled.article`
         }
       }
 
-      :not(:first-child) {
+      :not(:first-of-type) {
         margin-left: 1rem;
       }
     }
