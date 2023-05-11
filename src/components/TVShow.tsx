@@ -5,23 +5,19 @@ import { Skeleton } from '@mui/material';
 
 import { common } from '@/styles/common';
 
-interface TVSHow {
+interface TVShow {
   poster_path: string | null;
   id: number;
   name: string;
 }
 
-export default function TVShow({
-  title,
-  tvShows,
-  isLoading,
-}: {
+interface ComponentProps {
   title: string;
-  tvShows: {
-    tvShow: TVSHow[];
-  };
+  tvShows: TVShow[];
   isLoading: boolean;
-}) {
+}
+
+export default function TVShow({ title, tvShows, isLoading }: ComponentProps) {
   return (
     <StyledArticle>
       <h3>
@@ -41,7 +37,7 @@ export default function TVShow({
                 <StyledSkeleton variant='rounded' width={100} height={20} />
               </li>
             ))
-          : tvShows.map((tvShow: TVSHow) => (
+          : tvShows.map((tvShow: TVShow) => (
               <li key={tvShow.id}>
                 <Link href={{ pathname: `/tvShow/${tvShow.id}` }}>
                   <img

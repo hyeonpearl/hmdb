@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 
 import TVShow from '@/components/TVShow';
 
-export default function TVContainer({
-  title,
-  request,
-}: {
+interface ContainerProps {
   title: string;
   request: string;
-}) {
+}
+
+export default function TVContainer({ title, request }: ContainerProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [tvShows, setTVShows] = useState([]);
 

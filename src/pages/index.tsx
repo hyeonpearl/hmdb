@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
 import { Container } from '@mui/material';
 
 import { common } from '@/styles/common';
@@ -10,7 +9,7 @@ import TVContainer from '@/containers/TVContainer';
 
 export default function Home() {
   return (
-    <HomeContainer>
+    <StyledMain>
       <Head>
         <title>HMDb : Find a Best Movie & Drama</title>
       </Head>
@@ -39,11 +38,11 @@ export default function Home() {
           <TVContainer title='Top Rated' request='top_rated' />
         </Container>
       </section>
-    </HomeContainer>
+    </StyledMain>
   );
 }
 
-const HomeContainer = styled.main`
+const StyledMain = styled.main`
   section {
     padding: 1rem;
 
