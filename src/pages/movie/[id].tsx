@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -97,6 +98,7 @@ const StyledMain = styled.main`
   section {
     article {
       margin: 0 5rem;
+
       :first-of-type {
         display: flex;
         justify-content: space-between;
