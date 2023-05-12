@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
 import styled from '@emotion/styled';
@@ -103,6 +104,7 @@ const StyledArticle = styled.article`
         img {
           width: 210px;
           height: 330px;
+          border: 1px solid ${common.color.gray06};
           transition: all 0.3s ease-out;
 
           :hover {

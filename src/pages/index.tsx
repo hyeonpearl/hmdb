@@ -62,13 +62,12 @@ const StyledMain = styled.main`
 `;
 
 const StyledIntroduce = styled.h1`
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 5rem;
-  padding: 1.5rem;
-  margin-bottom: 5rem;
 
   @media screen and (max-width: 1200px) {
     font-size: 4.5rem;
@@ -76,7 +75,6 @@ const StyledIntroduce = styled.h1`
 
   @media screen and (max-width: 900px) {
     font-size: 3rem;
-    margin: 5rem 0;
   }
 
   @media screen and (max-width: 600px) {

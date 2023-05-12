@@ -30,6 +30,28 @@ export default function App({ Component, pageProps }: AppProps) {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
           }
+
+          a {
+            text-decoration: none;
+            color: ${common.color.white};
+          }
+
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6,
+          ul,
+          ol,
+          p {
+            margin: 0;
+            padding: 0;
+          }
+
+          li {
+            list-style: none;
+          }
         `}
       />
       <Header />
