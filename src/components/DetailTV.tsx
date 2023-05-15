@@ -17,6 +17,7 @@ interface TVInfo {
   name: string;
   original_name: string;
   number_of_seasons: number;
+  number_of_episodes: number;
   vote_average: number;
   vote_count: number;
   poster_path: string;
@@ -60,7 +61,8 @@ export default function DetailTV({
               <h1>{tvInfo.name}</h1>
 
               <h3>
-                {tvInfo.original_name} • {tvInfo.number_of_seasons} Seasons
+                {tvInfo.original_name} • {tvInfo.number_of_seasons} Seasons •{' '}
+                {tvInfo.number_of_episodes} Episodes
               </h3>
             </hgroup>
 

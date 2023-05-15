@@ -32,6 +32,7 @@ interface ComponentProps {
   vote_count: string;
   popular_count: string;
   backdrop: string;
+  release: string;
   genres: JSX.Element[] | null;
 }
 
@@ -41,6 +42,7 @@ export default function DetailMovie({
   popular_count,
   backdrop,
   genres,
+  release,
 }: ComponentProps) {
   return (
     <>
@@ -60,7 +62,7 @@ export default function DetailMovie({
               <h1>{movieInfo.title}</h1>
 
               <h3>
-                {movieInfo.original_title} • {movieInfo.runtime}m
+                {movieInfo.original_title} • {movieInfo.runtime}m • {release}
               </h3>
             </hgroup>
 

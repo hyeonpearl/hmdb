@@ -22,6 +22,7 @@ export default function Detail() {
     popularity: 0,
     tagline: '',
     overview: '',
+    release_date: '',
     genres: [{ id: 0, name: '' }],
   });
 
@@ -31,6 +32,8 @@ export default function Detail() {
       .then(data => setMovieInfo(data))
       .catch(error => console.log(error));
   }, [router.query.id]);
+
+  const release = movieInfo.release_date.slice(0, 4);
 
   const vote_count = new Intl.NumberFormat('en-US', {
     notation: 'compact',
@@ -54,6 +57,7 @@ export default function Detail() {
       vote_count={vote_count}
       popular_count={popular_count}
       backdrop={backdrop}
+      release={release}
       genres={genres}
     />
   );

@@ -15,6 +15,7 @@ export default function Detail() {
     name: '',
     original_name: '',
     number_of_seasons: 0,
+    number_of_episodes: 0,
     vote_average: 0,
     vote_count: 0,
     poster_path: '',
