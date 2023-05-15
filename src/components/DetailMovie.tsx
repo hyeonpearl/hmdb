@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
@@ -5,6 +6,7 @@ import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
 import { common } from '@/styles/common';
 import SEO from '@/components/SEO';
+import MovieContainer from '@/containers/MovieContainer';
 
 interface Genre {
   id: number;
@@ -106,6 +108,14 @@ export default function DetailMovie({
             <ul className='genres'>{genres}</ul>
           </article>
         </section>
+
+        <section>
+          <MovieContainer
+            title='비슷한 영화들'
+            request='recommend'
+            color='white'
+          />
+        </section>
       </StyledMain>
     </>
   );
@@ -115,6 +125,8 @@ const StyledMain = styled.main`
   margin: 66px 0;
 
   section {
+    padding: 3rem;
+
     :first-of-type {
       display: flex;
       padding: 2rem;

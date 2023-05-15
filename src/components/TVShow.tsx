@@ -2,6 +2,7 @@
 import Link from 'next/link';
 
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 import { common } from '@/styles/common';
 
@@ -12,17 +13,27 @@ interface TVShow {
 }
 
 interface ComponentProps {
-  title: string;
+  title?: string;
   tvShows: TVShow[];
   isLoading: boolean;
+  color?: string;
 }
 
-export default function TVShow({ title, tvShows, isLoading }: ComponentProps) {
+export default function TVShow({
+  title,
+  tvShows,
+  isLoading,
+  color,
+}: ComponentProps) {
   return (
-    <StyledArticle>
-      <h3>
-        <span>{title}</span>
-      </h3>
+    <StyledArticle color={color}>
+      {title ? (
+        <h3>
+          <span>{title}</span>
+        </h3>
+      ) : (
+        <></>
+      )}
 
       <ul>
         {isLoading
@@ -51,7 +62,15 @@ const StyledArticle = styled.article`
     margin: 1rem 0;
     display: flex;
     align-items: center;
-    color: ${common.color.white};
+
+    ${({ color }) =>
+      color === 'white'
+        ? css`
+            color: ${common.color.white};
+          `
+        : css`
+            color: ${common.color.gray01};
+          `}
 
     span {
       cursor: pointer;
@@ -89,6 +108,12 @@ const StyledArticle = styled.article`
         img {
           width: 210px;
           height: 330px;
+          ${({ color }) =>
+            color === 'white'
+              ? null
+              : css`
+                  border: 1px solid ${common.color.gray06};
+                `}
           transition: all 0.3s ease-out;
 
           :hover {
@@ -104,7 +129,14 @@ const StyledArticle = styled.article`
         }
 
         div {
-          color: ${common.color.white};
+          ${({ color }) =>
+            color === 'white'
+              ? css`
+                  color: ${common.color.white};
+                `
+              : css`
+                  color: ${common.color.gray01};
+                `}
         }
       }
 

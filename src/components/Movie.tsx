@@ -2,6 +2,7 @@
 import Link from 'next/link';
 
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 import { common } from '@/styles/common';
 
@@ -12,17 +13,27 @@ interface Movie {
 }
 
 interface ComponentProps {
-  title: string;
+  title?: string;
   movies: Movie[];
   isLoading: boolean;
+  color?: string;
 }
 
-export default function Movie({ title, movies, isLoading }: ComponentProps) {
+export default function Movie({
+  title,
+  movies,
+  isLoading,
+  color,
+}: ComponentProps) {
   return (
-    <StyledArticle>
-      <h3>
-        <span>{title}</span>
-      </h3>
+    <StyledArticle color={color}>
+      {title ? (
+        <h3>
+          <span>{title}</span>
+        </h3>
+      ) : (
+        <></>
+      )}
 
       <ul>
         {isLoading
@@ -55,7 +66,14 @@ const StyledArticle = styled.article`
     margin: 1rem 0;
     display: flex;
     align-items: center;
-    color: ${common.color.gray01};
+    ${({ color }) =>
+      color === 'white'
+        ? css`
+            color: ${common.color.white};
+          `
+        : css`
+            color: ${common.color.gray01};
+          `}
 
     span {
       cursor: pointer;
@@ -93,7 +111,12 @@ const StyledArticle = styled.article`
         img {
           width: 210px;
           height: 330px;
-          border: 1px solid ${common.color.gray06};
+          ${({ color }) =>
+            color === 'white'
+              ? null
+              : css`
+                  border: 1px solid ${common.color.gray06};
+                `}
           transition: all 0.3s ease-out;
 
           :hover {
@@ -109,7 +132,14 @@ const StyledArticle = styled.article`
         }
 
         div {
-          color: ${common.color.gray01};
+          ${({ color }) =>
+            color === 'white'
+              ? css`
+                  color: ${common.color.white};
+                `
+              : css`
+                  color: ${common.color.gray01};
+                `}
         }
       }
 

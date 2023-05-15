@@ -15,8 +15,8 @@ export default function Header() {
       </Link>
 
       <nav>
-        <span>Movies</span>
-        <span>TV&nbsp;Show</span>
+        <span>영화</span>
+        <span>TV&nbsp;시리즈</span>
         <SearchRoundedIcon />
       </nav>
     </StyledHeader>
