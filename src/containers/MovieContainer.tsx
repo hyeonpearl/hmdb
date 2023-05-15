@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Movie from '@/components/Movie';
@@ -15,6 +15,8 @@ export default function MovieContainer({
   color,
 }: ComponentProps) {
   const router = useRouter();
+
+  const scrollRef = useRef<HTMLUListElement>(null);
 
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -41,9 +43,19 @@ export default function MovieContainer({
             console.log(error);
             setIsLoading(true);
           });
+
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+    }
   }, [request, router.query.id]);
 
   return (
-    <Movie title={title} movies={movies} isLoading={isLoading} color={color} />
+    <Movie
+      title={title}
+      movies={movies}
+      isLoading={isLoading}
+      color={color}
+      scrollRef={scrollRef}
+    />
   );
 }

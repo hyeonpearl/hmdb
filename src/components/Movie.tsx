@@ -17,6 +17,7 @@ interface ComponentProps {
   movies: Movie[];
   isLoading: boolean;
   color?: string;
+  scrollRef: React.RefObject<HTMLUListElement>;
 }
 
 export default function Movie({
@@ -24,6 +25,7 @@ export default function Movie({
   movies,
   isLoading,
   color,
+  scrollRef,
 }: ComponentProps) {
   return (
     <StyledArticle color={color}>
@@ -35,7 +37,7 @@ export default function Movie({
         <></>
       )}
 
-      <ul>
+      <ul ref={scrollRef}>
         {isLoading
           ? array.map((_, index) => <li key={index}></li>)
           : movies.map((movie: Movie) => (

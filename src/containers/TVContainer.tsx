@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import TVShow from '@/components/TVShow';
@@ -11,6 +11,8 @@ interface ComponentProps {
 
 export default function TVContainer({ title, request, color }: ComponentProps) {
   const router = useRouter();
+
+  const scrollRef = useRef<HTMLUListElement>(null);
 
   const [isLoading, setIsLoading] = useState(true);
   const [tvShows, setTVShows] = useState([]);
@@ -37,6 +39,10 @@ export default function TVContainer({ title, request, color }: ComponentProps) {
             console.log(error);
             setIsLoading(true);
           });
+
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+    }
   }, [request, router.query.id]);
 
   return (
@@ -45,6 +51,7 @@ export default function TVContainer({ title, request, color }: ComponentProps) {
       tvShows={tvShows}
       isLoading={isLoading}
       color={color}
+      scrollRef={scrollRef}
     />
   );
 }

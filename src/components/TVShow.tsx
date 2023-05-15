@@ -17,6 +17,7 @@ interface ComponentProps {
   tvShows: TVShow[];
   isLoading: boolean;
   color?: string;
+  scrollRef: React.RefObject<HTMLUListElement>;
 }
 
 export default function TVShow({
@@ -24,6 +25,7 @@ export default function TVShow({
   tvShows,
   isLoading,
   color,
+  scrollRef,
 }: ComponentProps) {
   return (
     <StyledArticle color={color}>
@@ -35,7 +37,7 @@ export default function TVShow({
         <></>
       )}
 
-      <ul>
+      <ul ref={scrollRef}>
         {isLoading
           ? array.map((_, index) => <li key={index}></li>)
           : tvShows.map((tvShow: TVShow) => (
