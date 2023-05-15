@@ -2,7 +2,6 @@
 import Link from 'next/link';
 
 import styled from '@emotion/styled';
-import { Skeleton } from '@mui/material';
 
 import { common } from '@/styles/common';
 
@@ -24,20 +23,10 @@ export default function Movie({ title, movies, isLoading }: ComponentProps) {
       <h3>
         <span>{title}</span>
       </h3>
+
       <ul>
         {isLoading
-          ? array.map((_, index) => (
-              <li key={index}>
-                <StyledSkeleton
-                  variant='rounded'
-                  width={210}
-                  height={300}
-                  key={index}
-                />
-                <StyledSkeleton variant='rounded' width={210} height={20} />
-                <StyledSkeleton variant='rounded' width={100} height={20} />
-              </li>
-            ))
+          ? array.map((_, index) => <li key={index}></li>)
           : movies.map((movie: Movie) => (
               <li key={movie.id}>
                 <Link
@@ -129,9 +118,4 @@ const StyledArticle = styled.article`
       }
     }
   }
-`;
-
-const StyledSkeleton = styled(Skeleton)`
-  background: ${common.color.gray04};
-  margin-bottom: 1rem;
 `;

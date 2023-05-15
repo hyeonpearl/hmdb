@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 import styled from '@emotion/styled';
-import { Container } from '@mui/material';
 
 import { common } from '@/styles/common';
 import MovieContainer from '@/containers/MovieContainer';
@@ -15,28 +14,22 @@ export default function Home() {
       </Head>
 
       <section>
-        <Container fixed>
-          <StyledIntroduce>
-            <strong>어서오세요</strong>
-            영화 정보 사이트
-            <strong>HMDb입니다.</strong>
-          </StyledIntroduce>
-        </Container>
+        <StyledIntroduce>
+          <strong>어서오세요</strong>
+          영화 정보 사이트
+          <strong>HMDb입니다.</strong>
+        </StyledIntroduce>
       </section>
 
       <section>
-        <Container fixed>
-          <MovieContainer title='Now Playing' request={'now_playing'} />
-          <MovieContainer title='Popular' request={'popular'} />
-          <MovieContainer title='Top Rated' request={'top_rated'} />
-        </Container>
+        <MovieContainer title='Now Playing' request={'now_playing'} />
+        <MovieContainer title='Popular' request={'popular'} />
+        <MovieContainer title='Top Rated' request={'top_rated'} />
       </section>
 
       <section>
-        <Container fixed>
-          <TVContainer title='Trending' request='trending' />
-          <TVContainer title='Top Rated' request='top_rated' />
-        </Container>
+        <TVContainer title='Trending' request='trending' />
+        <TVContainer title='Top Rated' request='top_rated' />
       </section>
     </StyledMain>
   );

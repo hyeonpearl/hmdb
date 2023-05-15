@@ -3,45 +3,39 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import styled from '@emotion/styled';
-import { AppBar, Container, Toolbar } from '@mui/material';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 
 import { common } from '@/styles/common';
 
 export default function Header() {
   return (
-    <StyledAppBar>
-      <Container maxWidth='lg'>
-        <StyledToolbar>
-          <Link href={'/'} className='logo'>
-            <Image
-              src={'/logo_blank.svg'}
-              width={160}
-              height={62.5}
-              alt='logo'
-            />
-          </Link>
+    <StyledHeader>
+      <Link href={'/'} className='logo'>
+        <Image src={'/logo_blank.svg'} width={160} height={62.5} alt='logo' />
+      </Link>
 
-          <nav>
-            <span>Movies</span>
-            <span>TV&nbsp;Show</span>
-            <SearchRoundedIcon />
-          </nav>
-        </StyledToolbar>
-      </Container>
-    </StyledAppBar>
+      <nav>
+        <span>Movies</span>
+        <span>TV&nbsp;Show</span>
+        <SearchRoundedIcon />
+      </nav>
+    </StyledHeader>
   );
 }
 
-const StyledAppBar = styled(AppBar)`
-  background: ${common.color.gray01};
+const StyledHeader = styled.header`
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   opacity: 0.8;
-`;
+  z-index: 10;
 
-const StyledToolbar = styled(Toolbar)`
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 5rem;
+  background: ${common.color.gray01};
 
   @media screen and (max-width: 390px) {
     a img {
