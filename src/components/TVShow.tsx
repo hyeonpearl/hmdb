@@ -142,7 +142,7 @@ const StyledArticle = styled.article`
         }
       }
 
-      :not(:first-child) {
+      :not(:first-of-type) {
         margin-left: 1rem;
       }
     }
