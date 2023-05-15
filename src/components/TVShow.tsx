@@ -2,7 +2,7 @@
 import Link from 'next/link';
 
 import styled from '@emotion/styled';
-import { Skeleton } from '@mui/material';
+import { css } from '@emotion/react';
 
 import { common } from '@/styles/common';
 
@@ -13,31 +13,33 @@ interface TVShow {
 }
 
 interface ComponentProps {
-  title: string;
+  title?: string;
   tvShows: TVShow[];
   isLoading: boolean;
+  color?: string;
+  scrollRef: React.RefObject<HTMLUListElement>;
 }
 
-export default function TVShow({ title, tvShows, isLoading }: ComponentProps) {
+export default function TVShow({
+  title,
+  tvShows,
+  isLoading,
+  color,
+  scrollRef,
+}: ComponentProps) {
   return (
-    <StyledArticle>
-      <h3>
-        <span>{title}</span>
-      </h3>
-      <ul>
+    <StyledArticle color={color}>
+      {title ? (
+        <h3>
+          <span>{title}</span>
+        </h3>
+      ) : (
+        <></>
+      )}
+
+      <ul ref={scrollRef}>
         {isLoading
-          ? array.map((_, index) => (
-              <li key={index}>
-                <StyledSkeleton
-                  variant='rounded'
-                  width={210}
-                  height={300}
-                  key={index}
-                />
-                <StyledSkeleton variant='rounded' width={210} height={20} />
-                <StyledSkeleton variant='rounded' width={100} height={20} />
-              </li>
-            ))
+          ? array.map((_, index) => <li key={index}></li>)
           : tvShows.map((tvShow: TVShow) => (
               <li key={tvShow.id}>
                 <Link href={{ pathname: `/tvShow/${tvShow.id}` }}>
@@ -62,7 +64,15 @@ const StyledArticle = styled.article`
     margin: 1rem 0;
     display: flex;
     align-items: center;
-    color: ${common.color.white};
+
+    ${({ color }) =>
+      color === 'white'
+        ? css`
+            color: ${common.color.white};
+          `
+        : css`
+            color: ${common.color.gray01};
+          `}
 
     span {
       cursor: pointer;
@@ -100,6 +110,12 @@ const StyledArticle = styled.article`
         img {
           width: 210px;
           height: 330px;
+          ${({ color }) =>
+            color === 'white'
+              ? null
+              : css`
+                  border: 1px solid ${common.color.gray06};
+                `}
           transition: all 0.3s ease-out;
 
           :hover {
@@ -115,18 +131,20 @@ const StyledArticle = styled.article`
         }
 
         div {
-          color: ${common.color.white};
+          ${({ color }) =>
+            color === 'white'
+              ? css`
+                  color: ${common.color.white};
+                `
+              : css`
+                  color: ${common.color.gray01};
+                `}
         }
       }
 
-      :not(:first-child) {
+      :not(:first-of-type) {
         margin-left: 1rem;
       }
     }
   }
-`;
-
-const StyledSkeleton = styled(Skeleton)`
-  background: ${common.color.gray04};
-  margin-bottom: 1rem;
 `;

@@ -1,7 +1,6 @@
 import Head from 'next/head';
 
 import styled from '@emotion/styled';
-import { Container } from '@mui/material';
 
 import { common } from '@/styles/common';
 import MovieContainer from '@/containers/MovieContainer';
@@ -11,32 +10,34 @@ export default function Home() {
   return (
     <StyledMain>
       <Head>
-        <title>HMDb : Find a Best Movie & Drama</title>
+        <title>HMDb : 원하는 영화 & 드라마를 찾아보세요.</title>
       </Head>
 
       <section>
-        <Container fixed>
-          <StyledIntroduce>
-            <strong>어서오세요</strong>
-            영화 정보 사이트
-            <strong>HMDb입니다.</strong>
-          </StyledIntroduce>
-        </Container>
+        <StyledIntroduce>
+          <strong>어서오세요</strong>
+          영화 정보 사이트
+          <strong>HMDb입니다.</strong>
+        </StyledIntroduce>
       </section>
 
       <section>
-        <Container fixed>
-          <MovieContainer title='Now Playing' request={'now_playing'} />
-          <MovieContainer title='Popular' request={'popular'} />
-          <MovieContainer title='Top Rated' request={'top_rated'} />
-        </Container>
+        <MovieContainer title='현재 상영 중' request={'now_playing'} />
+        <MovieContainer title='인기 영화' request={'popular'} />
+        <MovieContainer title='평점 높은 영화' request={'top_rated'} />
       </section>
 
       <section>
-        <Container fixed>
-          <TVContainer title='Trending' request='trending' />
-          <TVContainer title='Top Rated' request='top_rated' />
-        </Container>
+        <TVContainer
+          title='트렌드한 TV 시리즈'
+          request='trending'
+          color='white'
+        />
+        <TVContainer
+          title='평점 높은 TV 시리즈'
+          request='top_rated'
+          color='white'
+        />
       </section>
     </StyledMain>
   );
@@ -44,7 +45,7 @@ export default function Home() {
 
 const StyledMain = styled.main`
   section {
-    padding: 1rem;
+    padding: 3rem;
 
     :first-of-type {
       margin-top: 66px;
