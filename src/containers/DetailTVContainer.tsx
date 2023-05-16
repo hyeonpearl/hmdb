@@ -11,7 +11,7 @@ interface Genre {
 export default function DetailTVContainer() {
   const router = useRouter();
 
-  const [tvInfo, setTvInfo] = useState({
+  const initialState = {
     name: '',
     original_name: '',
     number_of_seasons: 0,
@@ -24,7 +24,9 @@ export default function DetailTVContainer() {
     tagline: '',
     overview: '',
     genres: [{ id: 0, name: '' }],
-  });
+  };
+
+  const [tvInfo, setTvInfo] = useState(initialState);
 
   useEffect(() => {
     fetch(`/api/tv/${router.query.id}`)

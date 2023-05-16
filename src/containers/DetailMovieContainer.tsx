@@ -11,7 +11,7 @@ interface Genre {
 export default function DetailMovieContainer() {
   const router = useRouter();
 
-  const [movieInfo, setMovieInfo] = useState({
+  const initialState = {
     title: '',
     original_title: '',
     runtime: 0,
@@ -24,7 +24,9 @@ export default function DetailMovieContainer() {
     overview: '',
     release_date: '',
     genres: [{ id: 0, name: '' }],
-  });
+  };
+
+  const [movieInfo, setMovieInfo] = useState(initialState);
 
   useEffect(() => {
     fetch(`/api/movie/${router.query.id}`)
