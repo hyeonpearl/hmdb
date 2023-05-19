@@ -137,7 +137,7 @@ const slideUp = keyframes`
   }
 
   to {
-    height: 50%;
+    height: 30%;
   }
 `;
 
@@ -227,7 +227,7 @@ const StyledHeader = styled.header`
               dropdowns.movie || dropdowns.tv || dropdowns.search
                 ? css`
                     animation: ${slideUp} 0.3s ease;
-                    height: 50%;
+                    height: 30%;
                   `
                 : null}
 
