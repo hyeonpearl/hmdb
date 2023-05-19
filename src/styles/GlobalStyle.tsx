@@ -48,6 +48,10 @@ export default function GlobalStyle() {
         li {
           list-style: none;
         }
+
+        input {
+          all: unset;
+        }
       `}
     />
   );

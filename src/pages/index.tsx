@@ -47,6 +47,10 @@ const StyledMain = styled.main`
   section {
     padding: 3rem;
 
+    @media screen and (max-width: 600px) {
+      padding: 1.5rem;
+    }
+
     :first-of-type {
       margin-top: 66px;
       text-align: center;
