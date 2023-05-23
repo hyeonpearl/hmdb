@@ -63,9 +63,15 @@ export default function Header({
                 >
                   <div className='menu_title'>영화 탐색</div>
                   <ul>
-                    <li>현재 상영 중</li>
-                    <li>인기순</li>
-                    <li>높은 평점</li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/movie/now_playing'}>현재 상영 중</Link>
+                    </li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/movie/popular'}>인기순</Link>
+                    </li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/movie/top_rate'}>높은 평점</Link>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -88,8 +94,12 @@ export default function Header({
                 >
                   <div className='menu_title'>TV 시리즈 탐색</div>
                   <ul>
-                    <li>트렌드</li>
-                    <li>높은 평점</li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/tvShow/trending'}>트렌드</Link>
+                    </li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/tvShow/top_rate'}>높은 평점</Link>
+                    </li>
                   </ul>
                 </div>
               </div>

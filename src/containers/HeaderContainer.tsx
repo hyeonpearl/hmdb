@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 
 import Header from '@/components/Header';
+import { useRouter } from 'next/router';
 
 interface Dropdowns {
   movie: boolean;
@@ -17,6 +18,8 @@ export default function HeaderContainer() {
     search: false,
     close: false,
   });
+
+  const router = useRouter();
 
   const toggleDropdown = (dropdownName: keyof Dropdowns) => {
     setDropdowns(prevState => {
