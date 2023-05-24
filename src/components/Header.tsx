@@ -63,9 +63,15 @@ export default function Header({
                 >
                   <div className='menu_title'>영화 탐색</div>
                   <ul>
-                    <li>현재 상영 중</li>
-                    <li>인기순</li>
-                    <li>높은 평점</li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/movie/now_playing'}>현재 상영 중</Link>
+                    </li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/movie/popular'}>인기순</Link>
+                    </li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/movie/top_rate'}>높은 평점</Link>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -82,14 +88,15 @@ export default function Header({
             </span>
             {dropdowns.tv && (
               <div className='menu_wrap'>
-                <div
-                  className='content tv'
-                  onMouseLeave={() => toggleDropdown('close')}
-                >
+                <div className='content tv'>
                   <div className='menu_title'>TV 시리즈 탐색</div>
                   <ul>
-                    <li>트렌드</li>
-                    <li>높은 평점</li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/tvShow/trending'}>트렌드</Link>
+                    </li>
+                    <li onClick={() => toggleDropdown('close')}>
+                      <Link href={'/tvShow/top_rate'}>높은 평점</Link>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -130,16 +137,6 @@ export default function Header({
     </StyledHeader>
   );
 }
-
-const slideUp = keyframes`
-  from {
-    height: 0;
-  }
-
-  to {
-    height: 30%;
-  }
-`;
 
 const backdropBlur = keyframes`
   from { backdrop-filter: blur(0); }
@@ -218,18 +215,11 @@ const StyledHeader = styled.header`
             top: 0;
             left: 0;
             right: 0;
+            height: auto;
             background: ${common.color.black};
             z-index: 5;
 
-            padding: 6rem 6rem 0 6rem;
-
-            ${({ dropdowns }) =>
-              dropdowns.movie || dropdowns.tv || dropdowns.search
-                ? css`
-                    animation: ${slideUp} 0.3s ease;
-                    height: 30%;
-                  `
-                : null}
+            padding: 6rem 6rem 2rem 6rem;
 
             .menu_title {
               font-size: 0.9rem;
@@ -247,9 +237,11 @@ const StyledHeader = styled.header`
                 font-weight: 600;
                 padding: 0.5rem 0;
 
-                :hover {
-                  color: ${common.color.gray_hover};
-                  cursor: pointer;
+                a {
+                  :hover {
+                    color: ${common.color.gray_hover};
+                    cursor: pointer;
+                  }
                 }
               }
             }
