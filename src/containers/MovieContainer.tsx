@@ -7,12 +7,14 @@ interface ComponentProps {
   title?: string;
   request: string;
   color?: string;
+  layout: string;
 }
 
 export default function MovieContainer({
   title,
   request,
   color,
+  layout,
 }: ComponentProps) {
   const router = useRouter();
 
@@ -27,6 +29,7 @@ export default function MovieContainer({
           .then(res => res.json())
           .then(data => {
             setMovies(data.results);
+            console.log(data.results);
             setIsLoading(false);
           })
           .catch(error => {
@@ -55,6 +58,7 @@ export default function MovieContainer({
       movies={movies}
       isLoading={isLoading}
       color={color}
+      layout={layout}
       scrollRef={scrollRef}
     />
   );

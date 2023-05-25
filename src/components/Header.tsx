@@ -219,7 +219,7 @@ const StyledHeader = styled.header`
             background: ${common.color.black};
             z-index: 5;
 
-            padding: 6rem 6rem 2rem 6rem;
+            padding: 5rem 6.5rem 2rem 6.5rem;
 
             .menu_title {
               font-size: 0.9rem;
