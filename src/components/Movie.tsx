@@ -76,6 +76,7 @@ const StyledArticle = styled.article`
     margin: 1rem 0;
     display: flex;
     align-items: center;
+
     ${({ color }) =>
       color === 'white'
         ? css`
@@ -137,13 +138,14 @@ const StyledArticle = styled.article`
         img {
           width: 210px;
           height: 330px;
+          transition: all 0.3s ease-out;
+
           ${({ color }) =>
             color === 'white'
               ? null
               : css`
                   border: 1px solid ${common.color.gray06};
                 `}
-          transition: all 0.3s ease-out;
 
           :hover {
             transform: translate(0, -10px);

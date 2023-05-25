@@ -7,9 +7,15 @@ interface ComponentProps {
   title?: string;
   request: string;
   color?: string;
+  layout: string;
 }
 
-export default function TVContainer({ title, request, color }: ComponentProps) {
+export default function TVContainer({
+  title,
+  request,
+  color,
+  layout,
+}: ComponentProps) {
   const router = useRouter();
 
   const scrollRef = useRef<HTMLUListElement>(null);
@@ -51,6 +57,7 @@ export default function TVContainer({ title, request, color }: ComponentProps) {
       tvShows={tvShows}
       isLoading={isLoading}
       color={color}
+      layout={layout}
       scrollRef={scrollRef}
     />
   );
