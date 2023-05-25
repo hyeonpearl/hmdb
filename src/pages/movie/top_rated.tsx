@@ -4,7 +4,7 @@ import { common } from '@/styles/common';
 import SEO from '@/components/SEO';
 import MovieContainer from '@/containers/MovieContainer';
 
-export default function TopRate() {
+export default function TopRated() {
   return (
     <>
       <SEO title={'평점 높은 영화'} />
