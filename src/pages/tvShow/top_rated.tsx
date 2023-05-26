@@ -2,19 +2,19 @@ import styled from '@emotion/styled';
 
 import { common } from '@/styles/common';
 import SEO from '@/components/SEO';
-import MovieContainer from '@/containers/MovieContainer';
+import TVContainer from '@/containers/TVContainer';
 
-export default function NowPlaying() {
+export default function TopRated() {
   return (
     <>
-      <SEO title={'현재 상영 중'} />
+      <SEO title={'평점 높은 TV 시리즈'} />
       <StyledMain>
         <h3>
-          <span>현재 상영 중</span>
+          <span>평점 높은 TV 시리즈</span>
         </h3>
 
         <section>
-          <MovieContainer request='now_playing' color='white' layout='column' />
+          <TVContainer request='top_rated' color='white' layout='column' />
         </section>
       </StyledMain>
     </>

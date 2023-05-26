@@ -3,13 +3,15 @@ import Link from 'next/link';
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
 import { common } from '@/styles/common';
 
 interface Movie {
-  poster_path: string | null;
   id: number;
+  poster_path: string | null;
   title: string;
+  vote_average: number;
 }
 
 interface ComponentProps {
@@ -17,6 +19,7 @@ interface ComponentProps {
   movies: Movie[];
   isLoading: boolean;
   color?: string;
+  layout: string;
   scrollRef: React.RefObject<HTMLUListElement>;
 }
 
@@ -25,10 +28,11 @@ export default function Movie({
   movies,
   isLoading,
   color,
+  layout,
   scrollRef,
 }: ComponentProps) {
   return (
-    <StyledArticle color={color}>
+    <StyledArticle color={color} layout={layout}>
       {title ? (
         <h3>
           <span>{title}</span>
@@ -51,7 +55,11 @@ export default function Movie({
                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                     alt='poster'
                   />
-                  <div>{movie.title}</div>
+                  <div className='movie_title'>{movie.title}</div>
+                  <div className='movie_rate'>
+                    <StarRateRoundedIcon />
+                    <strong>{movie.vote_average?.toFixed(1)}</strong>
+                  </div>
                 </Link>
               </li>
             ))}
@@ -68,6 +76,7 @@ const StyledArticle = styled.article`
     margin: 1rem 0;
     display: flex;
     align-items: center;
+
     ${({ color }) =>
       color === 'white'
         ? css`
@@ -89,6 +98,7 @@ const StyledArticle = styled.article`
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
+        transition: color 0.3s ease;
       }
     }
   }
@@ -104,8 +114,23 @@ const StyledArticle = styled.article`
     display: flex;
     overflow-x: scroll;
 
+    ${({ layout }: { layout: string }) =>
+      layout === 'column' &&
+      css`
+        flex-wrap: wrap;
+        flex: 2;
+      `}
+
     li {
       list-style: none;
+      text-align: center;
+
+      ${({ layout }: { layout: string }) =>
+        layout === 'column' &&
+        css`
+          padding: 1rem;
+          flex: 1;
+        `}
 
       a {
         text-decoration: none;
@@ -113,13 +138,14 @@ const StyledArticle = styled.article`
         img {
           width: 210px;
           height: 330px;
+          transition: all 0.3s ease-out;
+
           ${({ color }) =>
             color === 'white'
               ? null
               : css`
                   border: 1px solid ${common.color.gray06};
                 `}
-          transition: all 0.3s ease-out;
 
           :hover {
             transform: translate(0, -10px);
@@ -133,7 +159,9 @@ const StyledArticle = styled.article`
           }
         }
 
-        div {
+        div.movie_title {
+          font-weight: 600;
+
           ${({ color }) =>
             color === 'white'
               ? css`
@@ -143,10 +171,37 @@ const StyledArticle = styled.article`
                   color: ${common.color.gray01};
                 `}
         }
+
+        div.movie_rate {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          svg {
+            color: ${common.color.green};
+          }
+
+          strong {
+            ${({ color }) =>
+              color === 'white'
+                ? css`
+                    color: ${common.color.white};
+                  `
+                : css`
+                    color: ${common.color.gray01};
+                  `}
+          }
+        }
       }
 
       :not(:first-of-type) {
         margin-left: 1rem;
+
+        ${({ layout }: { layout: string }) =>
+          layout === 'column' &&
+          css`
+            margin-left: 0;
+          `}
       }
     }
   }

@@ -70,7 +70,7 @@ export default function Header({
                       <Link href={'/movie/popular'}>인기순</Link>
                     </li>
                     <li onClick={() => toggleDropdown('close')}>
-                      <Link href={'/movie/top_rate'}>높은 평점</Link>
+                      <Link href={'/movie/top_rated'}>높은 평점</Link>
                     </li>
                   </ul>
                 </div>
@@ -95,7 +95,7 @@ export default function Header({
                       <Link href={'/tvShow/trending'}>트렌드</Link>
                     </li>
                     <li onClick={() => toggleDropdown('close')}>
-                      <Link href={'/tvShow/top_rate'}>높은 평점</Link>
+                      <Link href={'/tvShow/top_rated'}>높은 평점</Link>
                     </li>
                   </ul>
                 </div>
@@ -219,7 +219,7 @@ const StyledHeader = styled.header`
             background: ${common.color.black};
             z-index: 5;
 
-            padding: 6rem 6rem 2rem 6rem;
+            padding: 5rem 6.5rem 2rem 6.5rem;
 
             .menu_title {
               font-size: 0.9rem;

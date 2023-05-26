@@ -4,17 +4,17 @@ import { common } from '@/styles/common';
 import SEO from '@/components/SEO';
 import MovieContainer from '@/containers/MovieContainer';
 
-export default function NowPlaying() {
+export default function TopRated() {
   return (
     <>
-      <SEO title={'현재 상영 중'} />
+      <SEO title={'평점 높은 영화'} />
       <StyledMain>
         <h3>
-          <span>현재 상영 중</span>
+          <span>평점 높은 영화</span>
         </h3>
 
         <section>
-          <MovieContainer request='now_playing' color='white' layout='column' />
+          <MovieContainer request='top_rated' color='white' layout='column' />
         </section>
       </StyledMain>
     </>
