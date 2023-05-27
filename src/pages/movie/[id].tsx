@@ -13,6 +13,7 @@ export default function Detail() {
             title='비슷한 영화들'
             request='recommend'
             color='white'
+            layout='nowrap'
           />
         </section>
       </StyledMain>

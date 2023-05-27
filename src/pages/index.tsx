@@ -22,21 +22,37 @@ export default function Home() {
       </section>
 
       <section>
-        <MovieContainer title='현재 상영 중' request={'now_playing'} />
-        <MovieContainer title='인기 영화' request={'popular'} />
-        <MovieContainer title='평점 높은 영화' request={'top_rated'} />
+        <MovieContainer
+          title='현재 상영 중'
+          request={'now_playing'}
+          layout='nowrap'
+        />
+        <MovieContainer title='인기 영화' request={'popular'} layout='nowrap' />
+        <MovieContainer
+          title='평점 높은 영화'
+          request={'top_rated'}
+          layout='nowrap'
+        />
       </section>
 
       <section>
         <TVContainer
+          title='TV 방영 중'
+          request='on_air'
+          color='white'
+          layout='nowrap'
+        />
+        <TVContainer
           title='트렌드한 TV 시리즈'
           request='trending'
           color='white'
+          layout='nowrap'
         />
         <TVContainer
           title='평점 높은 TV 시리즈'
           request='top_rated'
           color='white'
+          layout='nowrap'
         />
       </section>
     </StyledMain>

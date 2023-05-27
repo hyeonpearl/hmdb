@@ -2,19 +2,19 @@ import styled from '@emotion/styled';
 
 import { common } from '@/styles/common';
 import SEO from '@/components/SEO';
-import MovieContainer from '@/containers/MovieContainer';
+import TVContainer from '@/containers/TVContainer';
 
-export default function Popular() {
+export default function OnAir() {
   return (
     <>
-      <SEO title={'인기 영화'} />
+      <SEO title={'TV 방영 중'} />
       <StyledMain>
         <h3>
-          <span>인기 영화</span>
+          <span>TV 방영 중</span>
         </h3>
 
         <section>
-          <MovieContainer request='popular' color='white' layout='wrap' />
+          <TVContainer request='on_air' color='white' layout='wrap' />
         </section>
       </StyledMain>
     </>
