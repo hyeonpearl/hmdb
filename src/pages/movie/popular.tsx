@@ -14,7 +14,7 @@ export default function Popular() {
         </h3>
 
         <section>
-          <MovieContainer request='popular' color='white' layout='column' />
+          <MovieContainer request='popular' color='white' layout='wrap' />
         </section>
       </StyledMain>
     </>

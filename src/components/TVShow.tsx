@@ -107,21 +107,22 @@ const StyledArticle = styled.article`
   ul {
     padding: 1rem 0;
     display: flex;
-    overflow-x: scroll;
 
     ${({ layout }: { layout: string }) =>
-      layout === 'column' &&
-      css`
-        flex-wrap: wrap;
-        flex: 2;
-      `}
+      layout === 'wrap'
+        ? css`
+            flex-wrap: wrap;
+          `
+        : css`
+            overflow-x: scroll;
+          `}
 
     li {
       list-style: none;
       text-align: center;
 
       ${({ layout }: { layout: string }) =>
-        layout === 'column' &&
+        layout === 'wrap' &&
         css`
           padding: 1rem;
           flex: 1;
@@ -193,7 +194,7 @@ const StyledArticle = styled.article`
         margin-left: 1rem;
 
         ${({ layout }: { layout: string }) =>
-          layout === 'column' &&
+          layout === 'wrap' &&
           css`
             margin-left: 0;
           `}

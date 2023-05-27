@@ -14,7 +14,7 @@ export default function TopRated() {
         </h3>
 
         <section>
-          <MovieContainer request='top_rated' color='white' layout='column' />
+          <MovieContainer request='top_rated' color='white' layout='wrap' />
         </section>
       </StyledMain>
     </>

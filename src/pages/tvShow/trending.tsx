@@ -14,7 +14,7 @@ export default function Trending() {
         </h3>
 
         <section>
-          <TVContainer request='trending' color='white' layout='column' />
+          <TVContainer request='trending' color='white' layout='wrap' />
         </section>
       </StyledMain>
     </>

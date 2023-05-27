@@ -12,6 +12,7 @@ export default function Detail() {
           title='비슷한 TV 시리즈'
           request='recommend'
           color='white'
+          layout='nowrap'
         />
       </section>
     </StyledMain>
