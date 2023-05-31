@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { common } from '@/styles/common';
+import { common } from '@/styles/theme/common';
 import SEO from '@/components/SEO';
 import HeaderContainer from '@/containers/HeaderContainer';
 import MovieContainer from '@/containers/MovieContainer';

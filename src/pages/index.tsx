@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import styled from '@emotion/styled';
 
-import { common } from '@/styles/common';
+import { common } from '@/styles/theme/common';
 import HeaderContainer from '@/containers/HeaderContainer';
 import MovieContainer from '@/containers/MovieContainer';
 import TVContainer from '@/containers/TVContainer';
