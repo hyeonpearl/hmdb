@@ -26,6 +26,7 @@ const nextConfig = {
         source: '/api/movie/:id/recommendations',
         destination: `https://api.themoviedb.org/3/movie/:id/recommendations?api_key=${process.env.API_KEY}&language=ko&page=1`,
       },
+
       // TV 리스트 API
       {
         source: '/api/tv/trending',
@@ -48,6 +49,12 @@ const nextConfig = {
       {
         source: '/api/tv/:id/recommendations',
         destination: `https://api.themoviedb.org/3/tv/:id/recommendations?api_key=${process.env.API_KEY}&language=ko&page=1`,
+      },
+
+      // 검색
+      {
+        source: '/api/search/:query',
+        destination: `https://api.themoviedb.org/3/search/multi?api_key=${process.env.API_KEY}&query=:query&include_adult=true&language=ko&page=1`,
       },
     ];
   },

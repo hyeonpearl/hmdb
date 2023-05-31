@@ -49,7 +49,7 @@ export default function HeaderContainer() {
 
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      router.push(`/search?query=${inputValue}`);
+      router.push(`/search/${inputValue}`);
       toggleDropdown('close');
     }
   };

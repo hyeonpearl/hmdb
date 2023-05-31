@@ -1,5 +1,6 @@
-import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
+
+import styled from '@emotion/styled';
 
 export default function Search() {
   const router = useRouter();
