@@ -2,12 +2,15 @@ import styled from '@emotion/styled';
 
 import { common } from '@/styles/common';
 import SEO from '@/components/SEO';
+import HeaderContainer from '@/containers/HeaderContainer';
 import TVContainer from '@/containers/TVContainer';
 
 export default function OnAir() {
   return (
     <>
       <SEO title={'TV 방영 중'} />
+
+      <HeaderContainer />
       <StyledMain>
         <h3>
           <span>TV 방영 중</span>

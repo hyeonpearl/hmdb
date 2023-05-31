@@ -2,12 +2,15 @@ import styled from '@emotion/styled';
 
 import { common } from '@/styles/common';
 import SEO from '@/components/SEO';
+import HeaderContainer from '@/containers/HeaderContainer';
 import TVContainer from '@/containers/TVContainer';
 
 export default function TopRated() {
   return (
     <>
       <SEO title={'평점 높은 TV 시리즈'} />
+
+      <HeaderContainer />
       <StyledMain>
         <h3>
           <span>평점 높은 TV 시리즈</span>
