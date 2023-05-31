@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import Header from '@/components/Header';
 
@@ -18,6 +19,8 @@ export default function HeaderContainer() {
     close: false,
   });
 
+  const router = useRouter();
+
   const toggleDropdown = (dropdownName: keyof Dropdowns) => {
     setDropdowns(prevState => {
       const updatedDropdowns: Dropdowns = {
@@ -36,11 +39,19 @@ export default function HeaderContainer() {
         };
       }
     });
+    setInputValue('');
   };
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
     console.log(inputValue);
+  };
+
+  const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      router.push(`/search?query=${inputValue}`);
+      toggleDropdown('close');
+    }
   };
 
   const onClearInput = () => setInputValue('');
@@ -51,6 +62,7 @@ export default function HeaderContainer() {
       toggleDropdown={toggleDropdown}
       inputValue={inputValue}
       onInputChange={onInputChange}
+      onKeyDown={onKeyDown}
       onClearInput={onClearInput}
     />
   );

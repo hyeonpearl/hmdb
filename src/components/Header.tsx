@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent, KeyboardEvent, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -21,6 +21,7 @@ interface ComponentProps {
   toggleDropdown: (dropdownName: keyof Dropdowns) => void;
   inputValue: string;
   onInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
   onClearInput: () => void;
 }
 
@@ -29,6 +30,7 @@ export default function Header({
   toggleDropdown,
   inputValue,
   onInputChange,
+  onKeyDown,
   onClearInput,
 }: ComponentProps) {
   useEffect(() => {
@@ -124,6 +126,7 @@ export default function Header({
                       placeholder='영화, 드라마, 애니메이션 등등...'
                       value={inputValue}
                       onChange={onInputChange}
+                      onKeyDown={onKeyDown}
                     />
 
                     <HighlightOffRoundedIcon
