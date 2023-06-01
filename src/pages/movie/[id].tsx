@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 
+import HeaderContainer from '@/containers/HeaderContainer';
 import DetailMovieContainer from '@/containers/DetailMovieContainer';
 import MovieContainer from '@/containers/MovieContainer';
 
 export default function Detail() {
   return (
     <>
+      <HeaderContainer />
       <StyledMain>
         <DetailMovieContainer />
         <section>

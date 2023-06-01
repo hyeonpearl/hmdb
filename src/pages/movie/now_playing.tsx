@@ -1,20 +1,23 @@
 import styled from '@emotion/styled';
 
-import { common } from '@/styles/common';
+import { common } from '@/styles/theme/common';
 import SEO from '@/components/SEO';
+import HeaderContainer from '@/containers/HeaderContainer';
 import MovieContainer from '@/containers/MovieContainer';
 
 export default function NowPlaying() {
   return (
     <>
       <SEO title={'현재 상영 중'} />
+
+      <HeaderContainer color='white' />
       <StyledMain>
         <h3>
           <span>현재 상영 중</span>
         </h3>
 
         <section>
-          <MovieContainer request='now_playing' color='white' layout='wrap' />
+          <MovieContainer request='now_playing' layout='wrap' />
         </section>
       </StyledMain>
     </>

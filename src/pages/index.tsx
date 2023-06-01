@@ -2,60 +2,68 @@ import Head from 'next/head';
 
 import styled from '@emotion/styled';
 
-import { common } from '@/styles/common';
+import { common } from '@/styles/theme/common';
+import HeaderContainer from '@/containers/HeaderContainer';
 import MovieContainer from '@/containers/MovieContainer';
 import TVContainer from '@/containers/TVContainer';
 
 export default function Home() {
   return (
-    <StyledMain>
+    <>
       <Head>
         <title>HMDb : 원하는 영화 & 드라마를 찾아보세요.</title>
       </Head>
 
-      <section>
-        <StyledIntroduce>
-          <strong>어서오세요</strong>
-          영화 정보 사이트
-          <strong>HMDb입니다.</strong>
-        </StyledIntroduce>
-      </section>
+      <HeaderContainer />
+      <StyledMain>
+        <section>
+          <StyledIntroduce>
+            <strong>어서오세요</strong>
+            영화 정보 사이트
+            <strong>HMDb입니다.</strong>
+          </StyledIntroduce>
+        </section>
 
-      <section>
-        <MovieContainer
-          title='현재 상영 중'
-          request={'now_playing'}
-          layout='nowrap'
-        />
-        <MovieContainer title='인기 영화' request={'popular'} layout='nowrap' />
-        <MovieContainer
-          title='평점 높은 영화'
-          request={'top_rated'}
-          layout='nowrap'
-        />
-      </section>
+        <section>
+          <MovieContainer
+            title='현재 상영 중'
+            request={'now_playing'}
+            layout='nowrap'
+          />
+          <MovieContainer
+            title='인기 영화'
+            request={'popular'}
+            layout='nowrap'
+          />
+          <MovieContainer
+            title='평점 높은 영화'
+            request={'top_rated'}
+            layout='nowrap'
+          />
+        </section>
 
-      <section>
-        <TVContainer
-          title='TV 방영 중'
-          request='on_air'
-          color='white'
-          layout='nowrap'
-        />
-        <TVContainer
-          title='트렌드한 TV 시리즈'
-          request='trending'
-          color='white'
-          layout='nowrap'
-        />
-        <TVContainer
-          title='평점 높은 TV 시리즈'
-          request='top_rated'
-          color='white'
-          layout='nowrap'
-        />
-      </section>
-    </StyledMain>
+        <section>
+          <TVContainer
+            title='TV 방영 중'
+            request='on_air'
+            color='white'
+            layout='nowrap'
+          />
+          <TVContainer
+            title='트렌드한 TV 시리즈'
+            request='trending'
+            color='white'
+            layout='nowrap'
+          />
+          <TVContainer
+            title='평점 높은 TV 시리즈'
+            request='top_rated'
+            color='white'
+            layout='nowrap'
+          />
+        </section>
+      </StyledMain>
+    </>
   );
 }
 

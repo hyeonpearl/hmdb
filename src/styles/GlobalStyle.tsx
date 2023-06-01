@@ -1,6 +1,6 @@
 import { Global, css } from '@emotion/react';
 
-import { common } from '@/styles/common';
+import { common } from '@/styles/theme/common';
 
 export default function GlobalStyle() {
   return (
