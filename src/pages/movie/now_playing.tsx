@@ -10,14 +10,14 @@ export default function NowPlaying() {
     <>
       <SEO title={'현재 상영 중'} />
 
-      <HeaderContainer />
+      <HeaderContainer color='white' />
       <StyledMain>
         <h3>
           <span>현재 상영 중</span>
         </h3>
 
         <section>
-          <MovieContainer request='now_playing' color='white' layout='wrap' />
+          <MovieContainer request='now_playing' layout='wrap' />
         </section>
       </StyledMain>
     </>

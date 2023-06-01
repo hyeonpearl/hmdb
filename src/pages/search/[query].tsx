@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import styled from '@emotion/styled';
+import { StyledSearch } from '@/styles/pages/Search';
 
 import HeaderContainer from '@/containers/HeaderContainer';
 
@@ -9,14 +9,12 @@ export default function Search() {
 
   return (
     <>
-      <HeaderContainer />
-      <StyledMain>
-        <div>검색 결과 {router.query.query}</div>
-      </StyledMain>
+      <HeaderContainer color='white' />
+      <StyledSearch>
+        <main>
+          <div>검색 결과 {router.query.query}</div>
+        </main>
+      </StyledSearch>
     </>
   );
 }
-
-const StyledMain = styled.main`
-  margin-top: 66px;
-`;
