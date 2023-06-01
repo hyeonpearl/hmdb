@@ -21,6 +21,7 @@ interface ComponentProps {
   onInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => void;
   onClearInput: () => void;
+  color?: string;
 }
 
 export default function Header({
@@ -30,6 +31,7 @@ export default function Header({
   onInputChange,
   onKeyDown,
   onClearInput,
+  color,
 }: ComponentProps) {
   useEffect(() => {
     window.addEventListener('scroll', () => toggleDropdown('close'));
@@ -40,7 +42,7 @@ export default function Header({
   }, []);
 
   return (
-    <StyledHeader dropdowns={dropdowns} inputValue={inputValue}>
+    <StyledHeader dropdowns={dropdowns} inputValue={inputValue} color={color}>
       <Link href={'/'} className='logo'>
         <Image src={'/logo_blank.svg'} width={160} height={62.5} alt='logo' />
       </Link>
@@ -88,7 +90,10 @@ export default function Header({
             </span>
             {dropdowns.tv && (
               <div className='menu_wrap'>
-                <div className='content tv'>
+                <div
+                  className='content tv'
+                  onMouseLeave={() => toggleDropdown('close')}
+                >
                   <div className='menu_title'>TV 시리즈 탐색</div>
                   <ul>
                     <li onClick={() => toggleDropdown('close')}>

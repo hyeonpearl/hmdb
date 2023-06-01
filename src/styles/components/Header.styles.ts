@@ -27,17 +27,39 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 5rem;
-  background: ${common.color.gray01};
 
-  ${({ dropdowns, inputValue }: { dropdowns: Dropdowns; inputValue: string }) =>
+  ${({
+    dropdowns,
+    inputValue,
+    color,
+  }: {
+    dropdowns: Dropdowns;
+    inputValue: string;
+    color?: string;
+  }) =>
     dropdowns.movie || dropdowns.tv || dropdowns.search
-      ? css`
-          background: ${common.color.black};
-          transition: background 0.3s ease;
-          opacity: 1;
-        `
+      ? color === 'white'
+        ? css`
+            background: ${common.color.white};
+            transition: background 0.3s ease;
+            opacity: 1;
+          `
+        : css`
+            background: ${common.color.black};
+            transition: background 0.3s ease;
+            opacity: 1;
+          `
       : css`
           transition: background 0.3s ease;
+        `}
+
+  ${({ color }) =>
+    color === 'white'
+      ? css`
+          background: ${common.color.gray10};
+        `
+      : css`
+          background: ${common.color.gray01};
         `}
 
   @media screen and (max-width: 600px) {
@@ -55,14 +77,29 @@ export const StyledHeader = styled.header`
 
       li {
         .menu_btn {
-          color: ${common.color.white};
           margin-left: 1rem;
           padding: 1rem;
           user-select: none;
           cursor: pointer;
 
+          ${({ color }) =>
+            color === 'white'
+              ? css`
+                  color: ${common.color.gray01};
+                `
+              : css`
+                  color: ${common.color.white};
+                `}
+
           :hover {
-            color: ${common.color.gray_hover};
+            ${({ color }) =>
+              color === 'white'
+                ? css`
+                    color: ${common.color.black};
+                  `
+                : css`
+                    color: ${common.color.gray_hover};
+                  `}
           }
         }
 
@@ -88,15 +125,23 @@ export const StyledHeader = styled.header`
             left: 0;
             right: 0;
             height: auto;
-            background: ${common.color.black};
             z-index: 5;
+
+            ${({ color }) =>
+              color === 'white'
+                ? css`
+                    background: ${common.color.white};
+                  `
+                : css`
+                    background: ${common.color.black};
+                  `}
 
             padding: 5rem 6.5rem 2rem 6.5rem;
 
             .menu_title {
               font-size: 0.9rem;
-              color: ${common.color.gray03};
               margin-bottom: 0.5rem;
+              color: ${common.color.gray03};
             }
 
             ul {
@@ -110,8 +155,24 @@ export const StyledHeader = styled.header`
                 padding: 0.5rem 0;
 
                 a {
+                  ${({ color }) =>
+                    color === 'white'
+                      ? css`
+                          color: ${common.color.gray01};
+                        `
+                      : css`
+                          color: ${common.color.white};
+                        `}
+
                   :hover {
-                    color: ${common.color.gray_hover};
+                    ${({ color }) =>
+                      color === 'white'
+                        ? css`
+                            color: ${common.color.black};
+                          `
+                        : css`
+                            color: ${common.color.gray_hover};
+                          `}
                     cursor: pointer;
                   }
                 }
@@ -126,16 +187,33 @@ export const StyledHeader = styled.header`
 
               svg {
                 font-size: 2rem;
-                color: ${common.color.gray03};
+
+                ${({ color }) =>
+                  color === 'white'
+                    ? css`
+                        color: ${common.color.gray01};
+                      `
+                    : css`
+                        color: ${common.color.gray03};
+                      `}
               }
 
               input {
                 width: 100%;
                 font-size: 1.5rem;
                 font-weight: 600;
-                background: ${common.color.black};
-                color: ${common.color.white};
                 padding: 0.5rem;
+
+                ${({ color }) =>
+                  color === 'white'
+                    ? css`
+                        background: ${common.color.white};
+                        color: ${common.color.gray01};
+                      `
+                    : css`
+                        background: ${common.color.black};
+                        color: ${common.color.white};
+                      `}
               }
 
               .clear_input {
@@ -146,22 +224,49 @@ export const StyledHeader = styled.header`
                 cursor: pointer;
 
                 :hover {
-                  color: ${common.color.gray06};
+                  ${({ color }) =>
+                    color === 'white'
+                      ? css`
+                          color: ${common.color.black};
+                        `
+                      : css`
+                          color: ${common.color.gray06};
+                        `}
                 }
               }
 
-              ${({ inputValue }) =>
+              ${({ inputValue, color }) =>
                 inputValue !== ''
-                  ? css`
-                      svg:first-of-type {
-                        color: ${common.color.gray06};
-                        transition: color 0.3s ease;
-                      }
+                  ? color === 'white'
+                    ? css`
+                        svg:first-of-type {
+                          color: ${common.color.black};
+                          transition: color 0.3s ease;
+                        }
 
-                      .clear_input {
-                        visibility: visible;
-                        opacity: 1;
-                        transition: opacity 0.3s ease;
+                        .clear_input {
+                          visibility: visible;
+                          opacity: 1;
+                          transition: opacity 0.3s ease;
+                        }
+                      `
+                    : css`
+                        svg:first-of-type {
+                          color: ${common.color.gray06};
+                          transition: color 0.3s ease;
+                        }
+
+                        .clear_input {
+                          visibility: visible;
+                          opacity: 1;
+                          transition: opacity 0.3s ease;
+                        }
+                      `
+                  : color === 'white'
+                  ? css`
+                      svg {
+                        color: ${common.color.gray01};
+                        transition: color 0.3s ease;
                       }
                     `
                   : css`

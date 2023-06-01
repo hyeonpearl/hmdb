@@ -9,6 +9,7 @@ export const common = {
     gray04: '#7f7f7f',
     gray05: '#999',
     gray06: '#b2b2b2',
+    gray10: '#f6f6f6',
 
     gray_hover: '#ccc',
 

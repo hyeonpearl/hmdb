@@ -10,7 +10,7 @@ interface Dropdowns {
   close: boolean;
 }
 
-export default function HeaderContainer() {
+export default function HeaderContainer({ color }: { color?: string }) {
   const [inputValue, setInputValue] = useState('');
   const [dropdowns, setDropdowns] = useState<Dropdowns>({
     movie: false,
@@ -64,6 +64,7 @@ export default function HeaderContainer() {
       onInputChange={onInputChange}
       onKeyDown={onKeyDown}
       onClearInput={onClearInput}
+      color={color}
     />
   );
 }
