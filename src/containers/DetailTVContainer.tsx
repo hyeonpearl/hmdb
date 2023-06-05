@@ -28,11 +28,17 @@ export default function DetailTVContainer() {
 
   const [tvInfo, setTvInfo] = useState(initialState);
 
+  const fetchData = async () => {
+    try {
+      const data = await (await fetch(`/api/tv/${router.query.id}`)).json();
+      setTvInfo(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    fetch(`/api/tv/${router.query.id}`)
-      .then(res => res.json())
-      .then(data => setTvInfo(data))
-      .catch(error => console.log(error));
+    fetchData();
   }, [router.query.id]);
 
   const vote_count = new Intl.NumberFormat('en-US', {

@@ -28,11 +28,17 @@ export default function DetailMovieContainer() {
 
   const [movieInfo, setMovieInfo] = useState(initialState);
 
+  const fetchData = async () => {
+    try {
+      const data = await (await fetch(`/api/movie/${router.query.id}`)).json();
+      setMovieInfo(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    fetch(`/api/movie/${router.query.id}`)
-      .then(res => res.json())
-      .then(data => setMovieInfo(data))
-      .catch(error => console.log(error));
+    fetchData();
   }, [router.query.id]);
 
   const release = movieInfo.release_date.slice(0, 4);

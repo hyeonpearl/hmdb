@@ -23,28 +23,29 @@ export default function TVContainer({
   const [isLoading, setIsLoading] = useState(true);
   const [tvShows, setTVShows] = useState([]);
 
+  const fetchData = async () => {
+    setIsLoading(true);
+
+    try {
+      let api_url = null;
+
+      request === 'recommend'
+        ? (api_url = `/api/tv/${router.query.id}/recommendations`)
+        : (api_url = `/api/tv/${request}`);
+
+      const data = await (await fetch(api_url)).json();
+
+      setTVShows(data.results);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    request === 'recommend'
-      ? fetch(`/api/tv/${router.query.id}/recommendations`)
-          .then(res => res.json())
-          .then(data => {
-            setTVShows(data.results);
-            setIsLoading(false);
-          })
-          .catch(error => {
-            console.log(error);
-            setIsLoading(true);
-          })
-      : fetch(`/api/tv/${request}`)
-          .then(res => res.json())
-          .then(data => {
-            setTVShows(data.results);
-            setIsLoading(false);
-          })
-          .catch(error => {
-            console.log(error);
-            setIsLoading(true);
-          });
+    fetchData();
 
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = 0;
@@ -53,12 +54,12 @@ export default function TVContainer({
 
   return (
     <TVShow
-      title={title}
       tvShows={tvShows}
       isLoading={isLoading}
-      color={color}
       layout={layout}
       scrollRef={scrollRef}
+      title={title}
+      color={color}
     />
   );
 }
