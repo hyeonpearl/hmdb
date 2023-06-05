@@ -4,17 +4,17 @@ import { useRouter } from 'next/router';
 import TVShow from '@/components/TVShow';
 
 interface ComponentProps {
-  title?: string;
   request: string;
-  color?: string;
   layout: string;
+  title?: string;
+  color?: string;
 }
 
 export default function TVContainer({
-  title,
   request,
-  color,
   layout,
+  title,
+  color,
 }: ComponentProps) {
   const router = useRouter();
 

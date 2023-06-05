@@ -2,7 +2,7 @@ import { ChangeEvent, KeyboardEvent, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { StyledHeader } from '@/styles/components/Header.styles';
+import { Logo, Nav, StyledHeader } from '@/styles/components/Header.styles';
 
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
@@ -42,12 +42,12 @@ export default function Header({
   }, []);
 
   return (
-    <StyledHeader dropdowns={dropdowns} inputValue={inputValue} color={color}>
-      <Link href={'/'} className='logo'>
+    <StyledHeader dropdowns={dropdowns} color={color}>
+      <Logo href={'/'} className='logo'>
         <Image src={'/logo_blank.svg'} width={160} height={62.5} alt='logo' />
-      </Link>
+      </Logo>
 
-      <nav>
+      <Nav dropdowns={dropdowns} inputValue={inputValue} color={color}>
         <ul>
           <li>
             <span
@@ -142,7 +142,7 @@ export default function Header({
             )}
           </li>
         </ul>
-      </nav>
+      </Nav>
     </StyledHeader>
   );
 }

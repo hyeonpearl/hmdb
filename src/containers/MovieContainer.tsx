@@ -4,17 +4,17 @@ import { useRouter } from 'next/router';
 import Movie from '@/components/Movie';
 
 interface ComponentProps {
-  title?: string;
   request: string;
-  color?: string;
   layout: string;
+  title?: string;
+  color?: string;
 }
 
 export default function MovieContainer({
-  title,
   request,
-  color,
   layout,
+  title,
+  color,
 }: ComponentProps) {
   const router = useRouter();
 

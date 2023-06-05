@@ -1,4 +1,4 @@
-import { StyledWhiteBody } from '@/styles/pages/Category';
+import { StyledWhiteBody } from '@/styles/pages/Category.styles';
 
 import SEO from '@/components/SEO';
 import HeaderContainer from '@/containers/HeaderContainer';
@@ -15,6 +15,7 @@ export default function Popular() {
           <h3>
             <span>인기 영화</span>
           </h3>
+
           <section>
             <MovieContainer request='popular' layout='wrap' />
           </section>

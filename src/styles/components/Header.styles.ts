@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { css, keyframes } from '@emotion/react';
 
 import { common } from '@/styles/theme/common';
+import Link from 'next/link';
 
 interface Dropdowns {
   movie: boolean;
@@ -28,15 +29,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   padding: 0 5rem;
 
-  ${({
-    dropdowns,
-    inputValue,
-    color,
-  }: {
-    dropdowns: Dropdowns;
-    inputValue: string;
-    color?: string;
-  }) =>
+  ${({ dropdowns, color }: { dropdowns: Dropdowns; color?: string }) =>
     dropdowns.movie || dropdowns.tv || dropdowns.search
       ? color === 'white'
         ? css`
@@ -61,167 +54,119 @@ export const StyledHeader = styled.header`
       : css`
           background: ${common.color.gray01};
         `}
+`;
 
+export const Logo = styled(Link)`
   @media screen and (max-width: 600px) {
     padding: 0 1rem;
 
-    a img {
+    img {
       width: 100px;
     }
   }
+`;
 
-  nav {
-    ul {
-      display: flex;
-      align-items: center;
+export const Nav = styled.nav`
+  ul {
+    display: flex;
+    align-items: center;
 
-      li {
-        .menu_btn {
-          margin-left: 1rem;
-          padding: 1rem;
-          user-select: none;
-          cursor: pointer;
+    li {
+      .menu_btn {
+        margin-left: 1rem;
+        padding: 1rem;
+        user-select: none;
+        cursor: pointer;
+
+        ${({
+          dropdowns,
+          inputValue,
+          color,
+        }: {
+          dropdowns: Dropdowns;
+          inputValue: string;
+          color?: string;
+        }) =>
+          color === 'white'
+            ? css`
+                color: ${common.color.gray01};
+              `
+            : css`
+                color: ${common.color.white};
+              `}
+
+        :hover {
+          ${({ color }) =>
+            color === 'white'
+              ? css`
+                  color: ${common.color.black};
+                `
+              : css`
+                  color: ${common.color.gray_hover};
+                `}
+        }
+      }
+
+      .menu_wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+
+        ${({ dropdowns }) =>
+          dropdowns.movie || dropdowns.tv || dropdowns.search
+            ? css`
+                animation: ${backdropBlur} 0.3s ease;
+                backdrop-filter: blur(10px);
+              `
+            : null}
+
+        .content {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: auto;
+          z-index: 5;
 
           ${({ color }) =>
             color === 'white'
               ? css`
-                  color: ${common.color.gray01};
+                  background: ${common.color.white};
                 `
               : css`
-                  color: ${common.color.white};
+                  background: ${common.color.black};
                 `}
 
-          :hover {
-            ${({ color }) =>
-              color === 'white'
-                ? css`
-                    color: ${common.color.black};
-                  `
-                : css`
-                    color: ${common.color.gray_hover};
-                  `}
-          }
-        }
+          padding: 5rem 6.5rem 2rem 6.5rem;
 
-        .menu_wrap {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          z-index: -1;
-
-          ${({ dropdowns }) =>
-            dropdowns.movie || dropdowns.tv || dropdowns.search
-              ? css`
-                  animation: ${backdropBlur} 0.3s ease;
-                  backdrop-filter: blur(10px);
-                `
-              : null}
-
-          .content {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: auto;
-            z-index: 5;
-
-            ${({ color }) =>
-              color === 'white'
-                ? css`
-                    background: ${common.color.white};
-                  `
-                : css`
-                    background: ${common.color.black};
-                  `}
-
-            padding: 5rem 6.5rem 2rem 6.5rem;
-
-            .menu_title {
-              font-size: 0.9rem;
-              margin-bottom: 0.5rem;
-              color: ${common.color.gray03};
-            }
-
-            ul {
-              display: flex;
-              flex-direction: column;
-              align-items: start;
-
-              li {
-                font-size: 1.5rem;
-                font-weight: 600;
-                padding: 0.5rem 0;
-
-                a {
-                  ${({ color }) =>
-                    color === 'white'
-                      ? css`
-                          color: ${common.color.gray01};
-                        `
-                      : css`
-                          color: ${common.color.white};
-                        `}
-
-                  :hover {
-                    ${({ color }) =>
-                      color === 'white'
-                        ? css`
-                            color: ${common.color.black};
-                          `
-                        : css`
-                            color: ${common.color.gray_hover};
-                          `}
-                    cursor: pointer;
-                  }
-                }
-              }
-            }
+          .menu_title {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: ${common.color.gray03};
           }
 
-          .search {
-            .search_bar {
-              display: flex;
-              align-items: center;
+          ul {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
 
-              svg {
-                font-size: 2rem;
+            li {
+              font-size: 1.5rem;
+              font-weight: 600;
+              padding: 0.5rem 0;
 
+              a {
                 ${({ color }) =>
                   color === 'white'
                     ? css`
                         color: ${common.color.gray01};
                       `
                     : css`
-                        color: ${common.color.gray03};
-                      `}
-              }
-
-              input {
-                width: 100%;
-                font-size: 1.5rem;
-                font-weight: 600;
-                padding: 0.5rem;
-
-                ${({ color }) =>
-                  color === 'white'
-                    ? css`
-                        background: ${common.color.white};
-                        color: ${common.color.gray01};
-                      `
-                    : css`
-                        background: ${common.color.black};
                         color: ${common.color.white};
                       `}
-              }
-
-              .clear_input {
-                padding: 1rem;
-                font-size: 1.25rem;
-                visibility: hidden;
-                opacity: 0;
-                cursor: pointer;
 
                 :hover {
                   ${({ color }) =>
@@ -230,52 +175,110 @@ export const StyledHeader = styled.header`
                           color: ${common.color.black};
                         `
                       : css`
-                          color: ${common.color.gray06};
+                          color: ${common.color.gray_hover};
                         `}
+                  cursor: pointer;
                 }
               }
+            }
+          }
+        }
 
-              ${({ inputValue, color }) =>
-                inputValue !== ''
-                  ? color === 'white'
+        .search {
+          .search_bar {
+            display: flex;
+            align-items: center;
+
+            svg {
+              font-size: 2rem;
+
+              ${({ color }) =>
+                color === 'white'
+                  ? css`
+                      color: ${common.color.gray01};
+                    `
+                  : css`
+                      color: ${common.color.gray03};
+                    `}
+            }
+
+            input {
+              width: 100%;
+              font-size: 1.5rem;
+              font-weight: 600;
+              padding: 0.5rem;
+
+              ${({ color }) =>
+                color === 'white'
+                  ? css`
+                      background: ${common.color.white};
+                      color: ${common.color.gray01};
+                    `
+                  : css`
+                      background: ${common.color.black};
+                      color: ${common.color.white};
+                    `}
+            }
+
+            .clear_input {
+              padding: 1rem;
+              font-size: 1.25rem;
+              visibility: hidden;
+              opacity: 0;
+              cursor: pointer;
+
+              :hover {
+                ${({ color }) =>
+                  color === 'white'
                     ? css`
-                        svg:first-of-type {
-                          color: ${common.color.black};
-                          transition: color 0.3s ease;
-                        }
-
-                        .clear_input {
-                          visibility: visible;
-                          opacity: 1;
-                          transition: opacity 0.3s ease;
-                        }
+                        color: ${common.color.black};
                       `
                     : css`
-                        svg:first-of-type {
-                          color: ${common.color.gray06};
-                          transition: color 0.3s ease;
-                        }
+                        color: ${common.color.gray06};
+                      `}
+              }
+            }
 
-                        .clear_input {
-                          visibility: visible;
-                          opacity: 1;
-                          transition: opacity 0.3s ease;
-                        }
-                      `
-                  : color === 'white'
+            ${({ inputValue, color }) =>
+              inputValue !== ''
+                ? color === 'white'
                   ? css`
-                      svg {
-                        color: ${common.color.gray01};
+                      svg:first-of-type {
+                        color: ${common.color.black};
                         transition: color 0.3s ease;
+                      }
+
+                      .clear_input {
+                        visibility: visible;
+                        opacity: 1;
+                        transition: opacity 0.3s ease;
                       }
                     `
                   : css`
-                      svg {
-                        color: ${common.color.gray03};
+                      svg:first-of-type {
+                        color: ${common.color.gray06};
                         transition: color 0.3s ease;
                       }
-                    `}
-            }
+
+                      .clear_input {
+                        visibility: visible;
+                        opacity: 1;
+                        transition: opacity 0.3s ease;
+                      }
+                    `
+                : color === 'white'
+                ? css`
+                    svg {
+                      color: ${common.color.gray01};
+                      transition: color 0.3s ease;
+                    }
+                  `
+                : css`
+                    svg {
+                      color: ${common.color.gray03};
+                      transition: color 0.3s ease;
+                    }
+                  `}
           }
         }
       }

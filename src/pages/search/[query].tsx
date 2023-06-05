@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { StyledSearch } from '@/styles/pages/Search';
+import { StyledSearch } from '@/styles/pages/Search.styles';
 
 import HeaderContainer from '@/containers/HeaderContainer';
 
