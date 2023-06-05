@@ -12,12 +12,12 @@ interface TVShow {
 }
 
 interface ComponentProps {
-  title?: string;
   tvShows: TVShow[];
   isLoading: boolean;
-  color?: string;
   layout: string;
   scrollRef: React.RefObject<HTMLUListElement>;
+  title?: string;
+  color?: string;
 }
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

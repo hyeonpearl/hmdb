@@ -1,6 +1,5 @@
-import styled from '@emotion/styled';
+import { StyledWhiteBody } from '@/styles/pages/Category.styles';
 
-import { common } from '@/styles/theme/common';
 import SEO from '@/components/SEO';
 import HeaderContainer from '@/containers/HeaderContainer';
 import MovieContainer from '@/containers/MovieContainer';
@@ -11,42 +10,17 @@ export default function NowPlaying() {
       <SEO title={'현재 상영 중'} />
 
       <HeaderContainer color='white' />
-      <StyledMain>
-        <h3>
-          <span>현재 상영 중</span>
-        </h3>
+      <StyledWhiteBody>
+        <main>
+          <h3>
+            <span>현재 상영 중</span>
+          </h3>
 
-        <section>
-          <MovieContainer request='now_playing' layout='wrap' />
-        </section>
-      </StyledMain>
+          <section>
+            <MovieContainer request='now_playing' layout='wrap' />
+          </section>
+        </main>
+      </StyledWhiteBody>
     </>
   );
 }
-
-const StyledMain = styled.main`
-  margin-top: 66px;
-  padding: 0 3rem;
-
-  h3 {
-    padding: 5rem 0;
-    text-align: center;
-    font-size: 4rem;
-
-    span {
-      cursor: pointer;
-
-      :hover {
-        background: linear-gradient(
-          to right,
-          ${common.color.green},
-          ${common.color.yellow}
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        transition: color 0.3s ease;
-      }
-    }
-  }
-`;

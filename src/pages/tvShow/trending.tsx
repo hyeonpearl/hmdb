@@ -1,4 +1,4 @@
-import { StyledWhiteBody } from '@/styles/pages/Category';
+import { StyledWhiteBody } from '@/styles/pages/Category.styles';
 
 import SEO from '@/components/SEO';
 import HeaderContainer from '@/containers/HeaderContainer';
@@ -15,6 +15,7 @@ export default function Trending() {
           <h3>
             <span>트렌드한 TV 시리즈</span>
           </h3>
+
           <section>
             <TVContainer request='trending' layout='wrap' />
           </section>

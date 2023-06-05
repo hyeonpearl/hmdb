@@ -49,12 +49,12 @@ export default function Home() {
             color='white'
             layout='nowrap'
           />
-          <TVContainer
+          {/* <TVContainer
             title='트렌드한 TV 시리즈'
             request='trending'
             color='white'
             layout='nowrap'
-          />
+          /> */}
           <TVContainer
             title='평점 높은 TV 시리즈'
             request='top_rated'
