@@ -9,8 +9,8 @@ export default function TopRated() {
     <>
       <SEO title={'평점 높은 영화'} />
 
-      <HeaderContainer color='white' />
       <StyledWhiteBody>
+        <HeaderContainer color='white' />
         <main>
           <h3>
             <span>평점 높은 영화</span>

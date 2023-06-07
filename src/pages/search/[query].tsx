@@ -9,8 +9,8 @@ export default function Search() {
 
   return (
     <>
-      <HeaderContainer color='white' />
       <StyledSearch>
+        <HeaderContainer color='white' />
         <main>
           <div>검색 결과 {router.query.query}</div>
         </main>

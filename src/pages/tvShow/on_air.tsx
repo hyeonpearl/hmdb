@@ -9,8 +9,8 @@ export default function OnAir() {
     <>
       <SEO title={'TV 방영 중'} />
 
-      <HeaderContainer color='white' />
       <StyledWhiteBody>
+        <HeaderContainer color='white' />
         <main>
           <h3>
             <span>TV 방영 중</span>

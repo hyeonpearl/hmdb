@@ -66,7 +66,7 @@ export default function Header({
                   <div className='menu_title'>영화 탐색</div>
                   <ul>
                     <li onClick={() => toggleDropdown('close')}>
-                      <Link href={'/movie/popular'}>인기순</Link>
+                      <Link href={'/movie/popular'}>인기 영화</Link>
                     </li>
                     <li onClick={() => toggleDropdown('close')}>
                       <Link href={'/movie/top_rated'}>높은 평점</Link>
@@ -97,7 +97,7 @@ export default function Header({
                   <div className='menu_title'>TV 시리즈 탐색</div>
                   <ul>
                     <li onClick={() => toggleDropdown('close')}>
-                      <Link href={'/tvShow/trending'}>트렌드</Link>
+                      <Link href={'/tvShow/trending'}>인기 시리즈</Link>
                     </li>
                     <li onClick={() => toggleDropdown('close')}>
                       <Link href={'/tvShow/top_rated'}>높은 평점</Link>

@@ -9,8 +9,8 @@ export default function NowPlaying() {
     <>
       <SEO title={'현재 상영 중'} />
 
-      <HeaderContainer color='white' />
       <StyledWhiteBody>
+        <HeaderContainer color='white' />
         <main>
           <h3>
             <span>현재 상영 중</span>

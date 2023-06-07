@@ -7,17 +7,17 @@ import TVContainer from '@/containers/TVContainer';
 export default function Trending() {
   return (
     <>
-      <SEO title={'트렌드한 TV 시리즈'} />
+      <SEO title={'인기 TV 시리즈'} />
 
-      <HeaderContainer color='white' />
       <StyledWhiteBody>
+        <HeaderContainer color='white' />
         <main>
           <h3>
-            <span>트렌드한 TV 시리즈</span>
+            <span>인기 TV 시리즈</span>
           </h3>
 
           <section>
-            <TVContainer request='trending' layout='wrap' />
+            <TVContainer request='popular' layout='wrap' />
           </section>
         </main>
       </StyledWhiteBody>

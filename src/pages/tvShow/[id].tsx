@@ -8,7 +8,6 @@ export default function Detail() {
   return (
     <>
       <HeaderContainer />
-
       <StyledMain>
         <DetailTVContainer />
         <section>

@@ -9,8 +9,8 @@ export default function Popular() {
     <>
       <SEO title={'인기 영화'} />
 
-      <HeaderContainer color='white' />
       <StyledWhiteBody>
+        <HeaderContainer color='white' />
         <main>
           <h3>
             <span>인기 영화</span>
