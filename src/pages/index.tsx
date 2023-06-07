@@ -45,16 +45,16 @@ export default function Home() {
         <section>
           <TVContainer
             title='TV 방영 중'
-            request='on_air'
+            request='on_the_air'
             color='white'
             layout='nowrap'
           />
-          {/* <TVContainer
-            title='트렌드한 TV 시리즈'
-            request='trending'
+          <TVContainer
+            title='인기 시리즈'
+            request='popular'
             color='white'
             layout='nowrap'
-          /> */}
+          />
           <TVContainer
             title='평점 높은 TV 시리즈'
             request='top_rated'

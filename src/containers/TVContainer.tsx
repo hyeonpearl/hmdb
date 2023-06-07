@@ -3,6 +3,13 @@ import { useRouter } from 'next/router';
 
 import TVShow from '@/components/TVShow';
 
+interface TVShow {
+  id: number;
+  poster_path: string | null;
+  name: string;
+  vote_average: number;
+}
+
 interface ComponentProps {
   request: string;
   layout: string;
@@ -22,6 +29,7 @@ export default function TVContainer({
 
   const [isLoading, setIsLoading] = useState(true);
   const [tvShows, setTVShows] = useState([]);
+  const [page, setPage] = useState(1);
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -29,14 +37,16 @@ export default function TVContainer({
     try {
       let api_url = null;
 
-      request === 'recommend'
+      request === 'recommendations'
         ? (api_url = `/api/tv/${router.query.id}/recommendations`)
-        : (api_url = `/api/tv/${request}`);
+        : (api_url = `/api/tv/${request}/${page}`);
 
-      const data = await (await fetch(api_url)).json();
+      const response = await (await fetch(api_url)).json();
+      const data = response.results;
 
-      setTVShows(data.results);
-      console.log(data);
+      const list = data.filter((tvShow: TVShow) => tvShow.poster_path !== null);
+
+      setTVShows(list);
     } catch (error) {
       console.log(error);
     } finally {
@@ -50,7 +60,7 @@ export default function TVContainer({
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = 0;
     }
-  }, [request, router.query.id]);
+  }, [request, router.query.id, page]);
 
   return (
     <TVShow

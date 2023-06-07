@@ -5,8 +5,8 @@ import { StyledTV } from '@/styles/components/TVShow.styles';
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
 interface TVShow {
-  poster_path: string | null;
   id: number;
+  poster_path: string | null;
   name: string;
   vote_average: number;
 }
@@ -19,8 +19,6 @@ interface ComponentProps {
   title?: string;
   color?: string;
 }
-
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 export default function TVShow({
   title,
@@ -42,7 +40,7 @@ export default function TVShow({
 
       <ul ref={scrollRef}>
         {isLoading
-          ? array.map((_, index) => <li key={index}></li>)
+          ? Array.from({ length: 10 }).map((_, index) => <li key={index}></li>)
           : tvShows.map((tvShow: TVShow) => (
               <li key={tvShow.id}>
                 <Link href={{ pathname: `/tvShow/${tvShow.id}` }}>

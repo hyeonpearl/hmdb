@@ -3,6 +3,13 @@ import { useRouter } from 'next/router';
 
 import Movie from '@/components/Movie';
 
+interface Movie {
+  id: number;
+  poster_path: string | null;
+  title: string;
+  vote_average: number;
+}
+
 interface ComponentProps {
   request: string;
   layout: string;
@@ -22,6 +29,7 @@ export default function MovieContainer({
 
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -29,14 +37,16 @@ export default function MovieContainer({
     try {
       let api_url = null;
 
-      request === 'recommend'
+      request === 'recommendations'
         ? (api_url = `/api/movie/${router.query.id}/recommendations`)
-        : (api_url = `/api/movie/${request}`);
+        : (api_url = `/api/movie/${request}/${page}`);
 
-      const data = await (await fetch(api_url)).json();
+      const response = await (await fetch(api_url)).json();
+      const data = response.results;
 
-      setMovies(data.results);
-      console.log(data);
+      const list = data.filter((movie: Movie) => movie.poster_path !== null);
+
+      setMovies(list);
     } catch (error) {
       console.log(error);
     } finally {
@@ -50,7 +60,7 @@ export default function MovieContainer({
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = 0;
     }
-  }, [request, router.query.id]);
+  }, [request, router.query.id, page]);
 
   return (
     <Movie

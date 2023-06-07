@@ -20,8 +20,6 @@ interface ComponentProps {
   color?: string;
 }
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 export default function Movie({
   title,
   movies,
@@ -42,7 +40,7 @@ export default function Movie({
 
       <ul ref={scrollRef}>
         {isLoading
-          ? array.map((_, index) => <li key={index}></li>)
+          ? Array.from({ length: 10 }).map((_, index) => <li key={index}></li>)
           : movies.map((movie: Movie) => (
               <li key={movie.id}>
                 <Link
