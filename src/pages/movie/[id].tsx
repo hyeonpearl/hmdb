@@ -12,8 +12,8 @@ export default function Detail() {
         <DetailMovieContainer />
         <section>
           <MovieContainer
-            title='비슷한 영화들'
-            request='recommend'
+            title='추천 영화 목록'
+            request='recommendations'
             color='white'
             layout='nowrap'
           />

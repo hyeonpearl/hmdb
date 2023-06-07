@@ -13,8 +13,8 @@ export default function Detail() {
         <DetailTVContainer />
         <section>
           <TVContainer
-            title='비슷한 TV 시리즈'
-            request='recommend'
+            title='추천 TV 시리즈'
+            request='recommendations'
             color='white'
             layout='nowrap'
           />
