@@ -37,12 +37,24 @@ export default function MovieContainer({
     try {
       let api_url = null;
 
-      request === 'recommendations'
-        ? (api_url = `/api/movie/${router.query.id}/recommendations`)
-        : (api_url = `/api/movie/${request}/${page}`);
+      switch (true) {
+        case request === 'recommendations': {
+          api_url = `/api/movie/${router.query.id}/recommendations`;
+          break;
+        }
+        case request === 'search': {
+          api_url = `/api/search/${router.query.query}/${page}`;
+          break;
+        }
+        default: {
+          api_url = `/api/movie/${request}/${page}`;
+        }
+      }
 
       const response = await (await fetch(api_url)).json();
       const data = response.results;
+
+      console.log(response);
 
       const list = data.filter((movie: Movie) => movie.poster_path !== null);
 
@@ -60,7 +72,7 @@ export default function MovieContainer({
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = 0;
     }
-  }, [request, router.query.id, page]);
+  }, [request, page, router.query.id, router.query.query]);
 
   return (
     <Movie

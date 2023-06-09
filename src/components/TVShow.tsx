@@ -21,12 +21,12 @@ interface ComponentProps {
 }
 
 export default function TVShow({
-  title,
   tvShows,
   isLoading,
-  color,
   layout,
   scrollRef,
+  title,
+  color,
 }: ComponentProps) {
   return (
     <StyledTV color={color} layout={layout}>

@@ -21,12 +21,12 @@ interface ComponentProps {
 }
 
 export default function Movie({
-  title,
   movies,
   isLoading,
-  color,
   layout,
   scrollRef,
+  title,
+  color,
 }: ComponentProps) {
   return (
     <StyledMovie color={color} layout={layout}>

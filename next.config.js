@@ -33,10 +33,10 @@ const nextConfig = {
         source: '/api/tv/:id/recommendations',
         destination: `https://api.themoviedb.org/3/tv/:id/recommendations?api_key=${process.env.API_KEY}&language=ko&page=1`,
       },
-      // 검색 API
+      // 영화 검색 API
       {
         source: '/api/search/:query/:page',
-        destination: `https://api.themoviedb.org/3/search/multi?api_key=${process.env.API_KEY}&query=:query&include_adult=true&language=ko&page=:page`,
+        destination: `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=:query&include_adult=true&language=ko&page=:page`,
       },
     ];
   },
