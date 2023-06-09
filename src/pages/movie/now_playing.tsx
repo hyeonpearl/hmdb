@@ -17,7 +17,7 @@ export default function NowPlaying() {
           </h3>
 
           <section>
-            <MovieContainer request='now_playing' layout='wrap' />
+            <MovieContainer request='now_playing' layout='grid' />
           </section>
         </main>
       </StyledWhiteBody>

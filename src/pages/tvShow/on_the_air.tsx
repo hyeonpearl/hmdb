@@ -17,7 +17,7 @@ export default function OnAir() {
           </h3>
 
           <section>
-            <TVContainer request='on_air' layout='wrap' />
+            <TVContainer request='on_the_air' layout='grid' />
           </section>
         </main>
       </StyledWhiteBody>

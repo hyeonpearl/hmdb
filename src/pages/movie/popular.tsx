@@ -17,7 +17,7 @@ export default function Popular() {
           </h3>
 
           <section>
-            <MovieContainer request='popular' layout='wrap' />
+            <MovieContainer request='popular' layout='grid' />
           </section>
         </main>
       </StyledWhiteBody>

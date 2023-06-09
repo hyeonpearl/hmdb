@@ -12,10 +12,10 @@ export default function Detail() {
         <DetailMovieContainer />
         <section>
           <MovieContainer
-            title='추천 영화 목록'
             request='recommendations'
+            layout='flex'
+            title='추천 영화 목록'
             color='white'
-            layout='nowrap'
           />
         </section>
       </StyledMain>

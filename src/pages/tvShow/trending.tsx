@@ -17,7 +17,7 @@ export default function Trending() {
           </h3>
 
           <section>
-            <TVContainer request='popular' layout='wrap' />
+            <TVContainer request='popular' layout='grid' />
           </section>
         </main>
       </StyledWhiteBody>

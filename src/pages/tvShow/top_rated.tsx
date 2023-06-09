@@ -17,7 +17,7 @@ export default function TopRated() {
           </h3>
 
           <section>
-            <TVContainer request='top_rated' layout='wrap' />
+            <TVContainer request='top_rated' layout='grid' />
           </section>
         </main>
       </StyledWhiteBody>

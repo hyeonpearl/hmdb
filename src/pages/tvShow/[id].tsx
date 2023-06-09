@@ -12,10 +12,10 @@ export default function Detail() {
         <DetailTVContainer />
         <section>
           <TVContainer
-            title='추천 TV 시리즈'
             request='recommendations'
+            layout='flex'
+            title='추천 TV 시리즈'
             color='white'
-            layout='nowrap'
           />
         </section>
       </StyledMain>

@@ -15,7 +15,7 @@ const nextConfig = {
       },
       // 추천 영화 목록 API
       {
-        source: '/api/movie/:id/recommendations/',
+        source: '/api/movie/:id/recommendations',
         destination: `https://api.themoviedb.org/3/movie/:id/recommendations?api_key=${process.env.API_KEY}&language=ko&page=1`,
       },
       // TV 리스트 API

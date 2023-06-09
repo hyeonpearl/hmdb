@@ -103,7 +103,7 @@ export default function Header({
                       <Link href={'/tvShow/top_rated'}>높은 평점</Link>
                     </li>
                     <li onClick={() => toggleDropdown('close')}>
-                      <Link href={'/tvShow/on_air'}>TV 방영 중</Link>
+                      <Link href={'/tvShow/on_the_air'}>TV 방영 중</Link>
                     </li>
                   </ul>
                 </div>
