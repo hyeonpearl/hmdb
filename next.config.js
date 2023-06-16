@@ -18,6 +18,11 @@ const nextConfig = {
         source: '/api/movie/:id/recommendations',
         destination: `https://api.themoviedb.org/3/movie/:id/recommendations?api_key=${process.env.API_KEY}&language=ko&page=1`,
       },
+      // 영화 검색 API
+      {
+        source: '/api/search/:query/:page',
+        destination: `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=:query&include_adult=false&language=ko&page=:page`,
+      },
       // TV 리스트 API
       {
         source: '/api/tv/:request/:page',
@@ -33,10 +38,10 @@ const nextConfig = {
         source: '/api/tv/:id/recommendations',
         destination: `https://api.themoviedb.org/3/tv/:id/recommendations?api_key=${process.env.API_KEY}&language=ko&page=1`,
       },
-      // 영화 검색 API
+      // TV 검색 API
       {
         source: '/api/search/:query/:page',
-        destination: `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=:query&include_adult=true&language=ko&page=:page`,
+        destination: `https://api.themoviedb.org/3/search/tv?api_key=${process.env.API_KEY}&query=:query&include_adult=false&language=ko&page=:page`,
       },
     ];
   },

@@ -165,6 +165,7 @@ export const StyledDetailMovie = styled.section`
 
       div.overview {
         margin-bottom: 1.5rem;
+        line-height: 1.3rem;
 
         h4 {
           margin-bottom: 0.5rem;
