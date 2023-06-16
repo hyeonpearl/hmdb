@@ -8,15 +8,14 @@ export default function Detail() {
   return (
     <>
       <HeaderContainer />
-
       <StyledMain>
         <DetailTVContainer />
         <section>
           <TVContainer
-            title='비슷한 TV 시리즈'
-            request='recommend'
+            request='recommendations'
+            layout='flex'
+            title='추천 TV 시리즈'
             color='white'
-            layout='nowrap'
           />
         </section>
       </StyledMain>

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import SEO from '@/components/SEO';
 
 import { StyledDetailTV } from '@/styles/components/DetailTV.styles';

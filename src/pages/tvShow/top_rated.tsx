@@ -1,4 +1,4 @@
-import { StyledWhiteBody } from '@/styles/pages/Category.styles';
+import { CategoryMain } from '@/styles/pages/Category.styles';
 
 import SEO from '@/components/SEO';
 import HeaderContainer from '@/containers/HeaderContainer';
@@ -10,17 +10,15 @@ export default function TopRated() {
       <SEO title={'평점 높은 TV 시리즈'} />
 
       <HeaderContainer color='white' />
-      <StyledWhiteBody>
-        <main>
-          <h3>
-            <span>평점 높은 TV 시리즈</span>
-          </h3>
+      <CategoryMain>
+        <h3>
+          <span>평점 높은 TV 시리즈</span>
+        </h3>
 
-          <section>
-            <TVContainer request='top_rated' layout='wrap' />
-          </section>
-        </main>
-      </StyledWhiteBody>
+        <section>
+          <TVContainer request='top_rated' layout='grid' />
+        </section>
+      </CategoryMain>
     </>
   );
 }

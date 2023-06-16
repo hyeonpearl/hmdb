@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import SEO from '@/components/SEO';
 
 import { StyledDetailMovie } from '@/styles/components/DetailMovie.styles';

@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
-import { StyledMovie } from '@/styles/components/Movie.styles';
+import { MovieList } from '@/styles/components/Movie.styles';
 
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
@@ -20,18 +21,16 @@ interface ComponentProps {
   color?: string;
 }
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 export default function Movie({
-  title,
   movies,
   isLoading,
-  color,
   layout,
   scrollRef,
+  title,
+  color,
 }: ComponentProps) {
   return (
-    <StyledMovie color={color} layout={layout}>
+    <MovieList color={color} layout={layout}>
       {title ? (
         <h3>
           <span>{title}</span>
@@ -42,7 +41,7 @@ export default function Movie({
 
       <ul ref={scrollRef}>
         {isLoading
-          ? array.map((_, index) => <li key={index}></li>)
+          ? Array.from({ length: 10 }).map((_, index) => <li key={index}></li>)
           : movies.map((movie: Movie) => (
               <li key={movie.id}>
                 <Link
@@ -63,6 +62,6 @@ export default function Movie({
               </li>
             ))}
       </ul>
-    </StyledMovie>
+    </MovieList>
   );
 }

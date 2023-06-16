@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { StyledSearch } from '@/styles/pages/Search.styles';
+import { SearchMain } from '@/styles/pages/Search.styles';
 
 import HeaderContainer from '@/containers/HeaderContainer';
 
@@ -10,11 +10,9 @@ export default function Search() {
   return (
     <>
       <HeaderContainer color='white' />
-      <StyledSearch>
-        <main>
-          <div>검색 결과 {router.query.query}</div>
-        </main>
-      </StyledSearch>
+      <SearchMain>
+        <div>검색 결과 {router.query.query}</div>
+      </SearchMain>
     </>
   );
 }

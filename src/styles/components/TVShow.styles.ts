@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 
 import { common } from '@/styles/theme/common';
 
-export const StyledTV = styled.article`
+export const TVList = styled.article`
   h3 {
     font-size: 2rem;
     margin: 1rem 0;
@@ -46,11 +46,13 @@ export const StyledTV = styled.article`
     display: flex;
 
     ${({ layout }: { layout: string }) =>
-      layout === 'wrap'
+      layout === 'grid'
         ? css`
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
           `
         : css`
+            display: flex;
             overflow-x: scroll;
           `}
 
@@ -58,11 +60,10 @@ export const StyledTV = styled.article`
       list-style: none;
       text-align: center;
 
-      ${({ layout }: { layout: string }) =>
-        layout === 'wrap' &&
+      ${({ layout }) =>
+        layout === 'grid' &&
         css`
-          padding: 1rem;
-          flex: 1;
+          margin-top: 1rem;
         `}
 
       a {
@@ -129,12 +130,6 @@ export const StyledTV = styled.article`
 
       :not(:first-of-type) {
         margin-left: 1rem;
-
-        ${({ layout }: { layout: string }) =>
-          layout === 'wrap' &&
-          css`
-            margin-left: 0;
-          `}
       }
     }
   }

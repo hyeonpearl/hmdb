@@ -1,22 +1,21 @@
 import { CategoryMain } from '@/styles/pages/Category.styles';
-
 import SEO from '@/components/SEO';
 import HeaderContainer from '@/containers/HeaderContainer';
-import MovieContainer from '@/containers/MovieContainer';
+import TVContainer from '@/containers/TVContainer';
 
-export default function Popular() {
+export default function OnAir() {
   return (
     <>
-      <SEO title={'인기 영화'} />
+      <SEO title={'TV 방영 중'} />
 
       <HeaderContainer color='white' />
       <CategoryMain>
         <h3>
-          <span>인기 영화</span>
+          <span>TV 방영 중</span>
         </h3>
 
         <section>
-          <MovieContainer request='popular' layout='grid' />
+          <TVContainer request='on_the_air' layout='grid' />
         </section>
       </CategoryMain>
     </>
