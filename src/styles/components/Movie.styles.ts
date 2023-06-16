@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 
 import { common } from '@/styles/theme/common';
 
-export const StyledMovie = styled.article`
+export const MovieList = styled.article`
   h3 {
     font-size: 2rem;
     margin: 1rem 0;

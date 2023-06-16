@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
-import { StyledTV } from '@/styles/components/TVShow.styles';
+import { TVList } from '@/styles/components/TVShow.styles';
 
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
@@ -29,7 +30,7 @@ export default function TVShow({
   color,
 }: ComponentProps) {
   return (
-    <StyledTV color={color} layout={layout}>
+    <TVList color={color} layout={layout}>
       {title ? (
         <h3>
           <span>{title}</span>
@@ -57,6 +58,6 @@ export default function TVShow({
               </li>
             ))}
       </ul>
-    </StyledTV>
+    </TVList>
   );
 }

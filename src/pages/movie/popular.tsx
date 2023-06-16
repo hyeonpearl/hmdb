@@ -1,4 +1,4 @@
-import { StyledWhiteBody } from '@/styles/pages/Category.styles';
+import { CategoryMain } from '@/styles/pages/Category.styles';
 
 import SEO from '@/components/SEO';
 import HeaderContainer from '@/containers/HeaderContainer';
@@ -9,18 +9,16 @@ export default function Popular() {
     <>
       <SEO title={'인기 영화'} />
 
-      <StyledWhiteBody>
-        <HeaderContainer color='white' />
-        <main>
-          <h3>
-            <span>인기 영화</span>
-          </h3>
+      <HeaderContainer color='white' />
+      <CategoryMain>
+        <h3>
+          <span>인기 영화</span>
+        </h3>
 
-          <section>
-            <MovieContainer request='popular' layout='grid' />
-          </section>
-        </main>
-      </StyledWhiteBody>
+        <section>
+          <MovieContainer request='popular' layout='grid' />
+        </section>
+      </CategoryMain>
     </>
   );
 }

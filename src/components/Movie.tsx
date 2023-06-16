@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
-import { StyledMovie } from '@/styles/components/Movie.styles';
+import { MovieList } from '@/styles/components/Movie.styles';
 
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 
@@ -29,7 +30,7 @@ export default function Movie({
   color,
 }: ComponentProps) {
   return (
-    <StyledMovie color={color} layout={layout}>
+    <MovieList color={color} layout={layout}>
       {title ? (
         <h3>
           <span>{title}</span>
@@ -61,6 +62,6 @@ export default function Movie({
               </li>
             ))}
       </ul>
-    </StyledMovie>
+    </MovieList>
   );
 }

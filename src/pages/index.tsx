@@ -1,8 +1,7 @@
 import Head from 'next/head';
 
-import styled from '@emotion/styled';
+import { HomeIntroduce, HomeMain } from '@/styles/pages/Home.styles';
 
-import { common } from '@/styles/theme/common';
 import HeaderContainer from '@/containers/HeaderContainer';
 import MovieContainer from '@/containers/MovieContainer';
 import TVContainer from '@/containers/TVContainer';
@@ -15,13 +14,13 @@ export default function Home() {
       </Head>
 
       <HeaderContainer />
-      <StyledMain>
+      <HomeMain>
         <section>
-          <StyledIntroduce>
+          <HomeIntroduce>
             <strong>어서오세요</strong>
             영화 정보 사이트
             <strong>HMDb입니다.</strong>
-          </StyledIntroduce>
+          </HomeIntroduce>
         </section>
 
         <section>
@@ -58,62 +57,7 @@ export default function Home() {
             layout='flex'
           />
         </section>
-      </StyledMain>
+      </HomeMain>
     </>
   );
 }
-
-const StyledMain = styled.main`
-  section {
-    padding: 3rem;
-
-    @media screen and (max-width: 600px) {
-      padding: 1.5rem;
-    }
-
-    :first-of-type {
-      margin-top: 66px;
-      text-align: center;
-    }
-
-    :nth-of-type(odd) {
-      background: ${common.color.black};
-    }
-
-    :nth-of-type(even) {
-      background: ${common.color.white};
-    }
-  }
-`;
-
-const StyledIntroduce = styled.h1`
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 5rem;
-
-  @media screen and (max-width: 1200px) {
-    font-size: 4.5rem;
-  }
-
-  @media screen and (max-width: 900px) {
-    font-size: 3rem;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 2.25rem;
-  }
-
-  strong {
-    background: linear-gradient(
-      to right,
-      ${common.color.green},
-      ${common.color.yellow}
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-`;
